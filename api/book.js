@@ -1,5 +1,5 @@
 const NOTIFY_TO = 'support@pixxelnest.com';
-const FROM = 'PixxelNest Booking Form <onboarding@resend.dev>';
+const FROM = 'PixxelNest Booking Form <booking@pixxelnesst.com>';
 
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
