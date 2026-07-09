@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Service · PixxelNest</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #F4EEE3;
+    --bg-soft: #EFE6D6;
+    --card: #FAF5EA;
+    --card-highlight: #F2DFC4;
+    --ink: #1C1814;
+    --ink-soft: #3A332C;
+    --muted: #8A8074;
+    --hairline: rgba(28, 24, 20, 0.10);
+    --hairline-soft: rgba(28, 24, 20, 0.06);
+    --accent: #E55A3C;
+    --accent-soft: #F18F76;
+    --font-display: 'Geist', 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --container-px: clamp(20px, 4vw, 56px);
+    --container-max: 1180px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+    font-feature-settings: "ss01", "cv11";
+    min-height: 100vh;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5; mix-blend-mode: multiply; z-index: 1;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-px);
+    position: relative; z-index: 2;
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    padding: 18px 0;
+    background: rgba(244,238,227,0.82);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .nav .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+  .brand svg { width: 28px; height: 28px; }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border-radius: 999px;
+    background: var(--accent); color: #FFF7F0;
+    font-size: 14px; font-weight: 500;
+    transition: transform 0.3s var(--ease);
+  }
+  .nav-cta:hover { transform: translateY(-2px); }
+  .nav .back {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; color: var(--ink-soft); font-weight: 500;
+    padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--hairline);
+    transition: all 0.3s var(--ease);
+  }
+  .nav .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+
+  /* HERO */
+  .hero { padding: 140px 0 64px; }
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 6vw, 88px);
+    align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500; color: var(--muted); margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6.5vw, 96px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: clamp(20px, 1.8vw, 26px);
+    font-weight: 400;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .lede {
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin-bottom: 36px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 24px; border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    transition: transform 0.3s var(--ease), background 0.3s, color 0.3s;
+    border: 1px solid transparent;
+    cursor: pointer; font-family: inherit;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: #FFF7F0; }
+  .btn-ghost { color: var(--ink); border-color: var(--hairline); }
+  .btn-ghost:hover { border-color: var(--ink); }
+
+  /* Image placeholder (replaces <image-slot> web component) */
+  .hero-image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--card-highlight);
+  }
+  .hero-image-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* fallback if image fails to load */
+  .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--card-highlight) 0%, var(--bg-soft) 100%);
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    gap: 10px;
+    flex-direction: column;
+  }
+  .img-placeholder svg {
+    width: 40px; height: 40px;
+    opacity: 0.4;
+    stroke: var(--muted);
+  }
+
+  /* BEST FOR strip */
+  .best-for {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 40px 0;
+    margin-top: 32px;
+  }
+  .best-for .container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .best-for .label {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500;
+  }
+  .best-for p {
+    font-size: clamp(18px, 1.5vw, 22px);
+    line-height: 1.45;
+    color: var(--ink);
+    max-width: 56ch;
+  }
+
+  /* Section heads */
+  section.block { padding: 96px 0; }
+  section.block .head {
+    margin-bottom: 56px;
+    max-width: 720px;
+  }
+  section.block h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    font-weight: 500;
+    margin-top: 16px;
+  }
+  section.block h2 .italic {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--accent);
+  }
+
+  /* WHAT YOU GET */
+  .what {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--hairline-soft);
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .checklist {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    list-style: none;
+  }
+  .checklist li {
+    display: flex; gap: 18px;
+    align-items: flex-start;
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--hairline-soft);
+    border-radius: 16px;
+  }
+  .checklist .check {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #FFF7F0;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .checklist .check svg { width: 16px; height: 16px; }
+  .checklist .item-text {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.5;
+    padding-top: 3px;
+  }
+
+  /* PROCESS */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--hairline);
+  }
+  .step {
+    padding: 40px 24px 0 0;
+    border-right: 1px solid var(--hairline);
+    position: relative;
+  }
+  .step:last-child { border-right: none; }
+  .step + .step { padding-left: 32px; }
+  .step .step-n {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+  .step h3 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2vw, 30px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+    line-height: 1.05;
+  }
+  .step p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    opacity: 0.85;
+  }
+
+  /* PRICE + DELIVERABLES side-by-side */
+  .price-block .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .price-card, .deliv-card {
+    background: var(--card);
+    border: 1px solid var(--hairline-soft);
+    border-radius: 24px;
+    padding: clamp(28px, 4vw, 44px);
+    display: flex; flex-direction: column;
+  }
+  .price-card {
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card .badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    padding: 7px 14px;
+    background: var(--accent);
+    color: #FFF7F0;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .price-card .tier-name {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .price-card .tier-desc {
+    font-size: 14px;
+    color: rgba(244,238,227,0.65);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .price-row {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .price-row .currency { font-size: 18px; opacity: 0.6; }
+  .price-row .amount {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 5.5vw, 80px);
+    font-weight: 500; letter-spacing: -0.04em; line-height: 1;
+  }
+  .price-row .unit { font-size: 14px; opacity: 0.6; }
+  .price-note {
+    font-size: 13px;
+    color: rgba(244,238,227,0.55);
+    line-height: 1.5;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(244,238,227,0.15);
+  }
+  .price-card .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px;
+    padding: 16px 24px;
+    background: var(--accent); color: #FFF7F0;
+    border-radius: 999px;
+    font-size: 15px; font-weight: 500;
+    transition: transform 0.3s var(--ease);
+  }
+  .price-card .cta:hover { transform: translateY(-2px); }
+
+  .deliv-card h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .deliv-card ul {
+    list-style: none;
+    flex: 1;
+  }
+  .deliv-card li {
+    display: flex; gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .deliv-card li:last-child { border-bottom: none; }
+  .deliv-card li::before {
+    content: ''; flex-shrink: 0;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    margin-top: 9px;
+  }
+
+  /* FAQ */
+  .faq-list {
+    border-top: 1px solid var(--hairline);
+  }
+  details.q {
+    border-bottom: 1px solid var(--hairline);
+    padding: 24px 0;
+    cursor: pointer;
+  }
+  details.q summary {
+    list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+    font-family: var(--font-display);
+    font-size: clamp(18px, 1.6vw, 22px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  details.q summary::-webkit-details-marker { display: none; }
+  details.q summary .toggle {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--hairline);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: all 0.3s var(--ease);
+    color: var(--ink);
+  }
+  details.q[open] summary .toggle {
+    background: var(--accent); color: #FFF7F0; border-color: var(--accent);
+    transform: rotate(45deg);
+  }
+  details.q .answer {
+    padding-top: 18px;
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 64ch;
+  }
+
+  /* CTA STRIP */
+  .cta-strip {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 96px 0;
+  }
+  .cta-strip .container {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap;
+  }
+  .cta-strip h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 500; letter-spacing: -0.04em; line-height: 1;
+    max-width: 16ch;
+  }
+  .cta-strip h2 .italic {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--accent-soft);
+  }
+  .cta-strip .btn-ghost { color: var(--bg); border-color: rgba(244,238,227,0.25); }
+  .cta-strip .btn-ghost:hover { background: var(--accent); border-color: var(--accent); color: #FFF7F0; }
+
+  /* ERROR */
+  .err {
+    padding: 200px 0 100px;
+    text-align: center;
+  }
+  .err h1 { margin-bottom: 16px; }
+  .err p { color: var(--ink-soft); margin-bottom: 32px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero .container { grid-template-columns: 1fr; }
+    .checklist { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .step { border-right: none; padding-right: 0; }
+    .step:nth-child(odd) { border-right: 1px solid var(--hairline); padding-right: 24px; }
+    .step + .step { padding-left: 24px; }
+    .step:nth-child(odd) + .step { padding-left: 32px; }
+    .step:nth-child(n+3) { padding-top: 40px; border-top: 1px solid var(--hairline); margin-top: 32px; }
+    .price-block .grid-2 { grid-template-columns: 1fr; }
+    .best-for .container { grid-template-columns: 1fr; gap: 16px; }
+  }
+  @media (max-width: 560px) {
+    .process-grid { grid-template-columns: 1fr; }
+    .step { border-right: none !important; padding: 32px 0 0 0 !important; }
+    .step + .step { border-top: 1px solid var(--hairline); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="10" height="10" rx="2" fill="#1C1814" />
+        <rect x="15" y="3" width="10" height="10" rx="2" fill="#E55A3C" />
+        <rect x="3" y="15" width="10" height="10" rx="2" fill="#E55A3C" />
+        <rect x="15" y="15" width="10" height="10" rx="2" fill="#1C1814" />
+      </svg>
+      <span>PixxelNest</span>
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="back">All services</a>
+      <a href="book.html" class="nav-cta">Book a call <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<main id="main"></main>
+
+<script src="services-data.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+  const data = (window.PIXXELNEST_SERVICES || {})[id];
+  const main = document.getElementById('main');
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, m => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[m]));
+  }
+
+  if (!data) {
+    main.innerHTML = `
+      <section class="err">
+        <div class="container">
+          <h1>Page not found.</h1>
+          <p>We could not find the service "${escapeHtml(id || '')}". Try one of the others from the home page.</p>
+          <a href="index.html" class="btn btn-primary">Back to home <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+    `;
+  } else {
+    document.title = `${data.title} · PixxelNest`;
+
+    const checks = data.whatYouGet.map(item => `
+      <li>
+        <span class="check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6" /></svg>
+        </span>
+        <span class="item-text">${escapeHtml(item)}</span>
+      </li>
+    `).join('');
+
+    const steps = data.process.map(s => `
+      <div class="step">
+        <div class="step-n">${escapeHtml(s.n)}</div>
+        <h3>${escapeHtml(s.t)}</h3>
+        <p>${escapeHtml(s.d)}</p>
+      </div>
+    `).join('');
+
+    const deliv = data.deliverables.map(d => `<li>${escapeHtml(d)}</li>`).join('');
+
+    const faqs = data.faq.map((f, i) => `
+      <details class="q"${i === 0 ? ' open' : ''}>
+        <summary>
+          <span>${escapeHtml(f.q)}</span>
+          <span class="toggle" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 2v10M2 7h10"/></svg>
+          </span>
+        </summary>
+        <div class="answer">${escapeHtml(f.a)}</div>
+      </details>
+    `).join('');
+
+    main.innerHTML = `
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <div>
+            <div class="eyebrow">Service · ${escapeHtml(data.title)}</div>
+            <h1>${escapeHtml(data.title)}.</h1>
+            <span class="tagline">${escapeHtml(data.tagline)}</span>
+            <p class="lede">${escapeHtml(data.lede)}</p>
+            <div class="hero-actions">
+              <a href="book.html" class="btn btn-primary">Book a call <span aria-hidden="true">→</span></a>
+              <a href="#price" class="btn btn-ghost">See price</a>
+            </div>
+          </div>
+          <div class="hero-image-wrap">
+            ${data.image
+              ? `<img src="${escapeHtml(data.image)}" alt="${escapeHtml(data.title)}" loading="lazy" />`
+              : `<div class="img-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="3"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <path d="M21 15l-5-5L5 21"/>
+                  </svg>
+                  <span>${escapeHtml(data.title)}</span>
+                </div>`
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- BEST FOR -->
+      <section class="best-for">
+        <div class="container">
+          <span class="label">Best for</span>
+          <p>${escapeHtml(data.bestFor)}</p>
+        </div>
+      </section>
+
+      <!-- WHAT YOU GET -->
+      <section class="block what">
+        <div class="container">
+          <div class="head">
+            <div class="eyebrow">What you get</div>
+            <h2>Every box, <span class="italic">ticked</span>.</h2>
+          </div>
+          <ul class="checklist">${checks}</ul>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="block">
+        <div class="container">
+          <div class="head">
+            <div class="eyebrow">How it works</div>
+            <h2>From kickoff to <span class="italic">live</span>.</h2>
+          </div>
+          <div class="process-grid">${steps}</div>
+        </div>
+      </section>
+
+      <!-- PRICE + DELIVERABLES -->
+      <section class="block price-block" id="price">
+        <div class="container">
+          <div class="head">
+            <div class="eyebrow">Price</div>
+            <h2>One clear rate. <span class="italic">No surprises.</span></h2>
+          </div>
+          <div class="grid-2">
+            <div class="price-card">
+              <div class="badge">${escapeHtml(data.title)}</div>
+              <div class="tier-name">${escapeHtml(data.title)}</div>
+              <div class="tier-desc">${escapeHtml(data.tagline)}</div>
+              <div class="price-row">
+                <span class="currency">&#8377;</span>
+                <span class="amount">${escapeHtml(data.price.amount)}</span>
+                <span class="unit">${escapeHtml(data.price.unit)}</span>
+              </div>
+              <p class="price-note">${escapeHtml(data.price.note)}</p>
+              <a href="book.html" class="cta">Start this project <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="deliv-card">
+              <h3>What lands in your inbox</h3>
+              <ul>${deliv}</ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="block">
+        <div class="container">
+          <div class="head">
+            <div class="eyebrow">Common questions</div>
+            <h2>You asked, <span class="italic">we answered</span>.</h2>
+          </div>
+          <div class="faq-list">${faqs}</div>
+        </div>
+      </section>
+
+      <!-- CTA STRIP -->
+      <section class="cta-strip">
+        <div class="container">
+          <h2>Ready to start? <br /><span class="italic">Say hello.</span></h2>
+          <div class="hero-actions">
+            <a href="book.html" class="btn btn-primary">Book a call <span aria-hidden="true">→</span></a>
+            <a href="work.html" class="btn btn-ghost">See our work</a>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+</script>
+
+</body>
+</html>

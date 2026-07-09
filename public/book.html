@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book a call · PixxelNest</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #F4EEE3;
+    --bg-soft: #EFE6D6;
+    --card: #FAF5EA;
+    --card-highlight: #F2DFC4;
+    --ink: #1C1814;
+    --ink-soft: #3A332C;
+    --muted: #8A8074;
+    --hairline: rgba(28, 24, 20, 0.10);
+    --hairline-soft: rgba(28, 24, 20, 0.06);
+    --accent: #E55A3C;
+    --accent-soft: #F18F76;
+    --font-display: 'Geist', 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --container-px: clamp(20px, 4vw, 56px);
+    --container-max: 1180px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+    font-feature-settings: "ss01", "cv11";
+    min-height: 100vh;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5; mix-blend-mode: multiply; z-index: 1;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: var(--bg); }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  input, textarea, select {
+    font-family: inherit; font-size: inherit; color: inherit;
+  }
+
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-px);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ────── NAV ────── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    padding: 18px 0;
+    background: rgba(244,238,227,0.82);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+  .brand svg { width: 28px; height: 28px; }
+  .nav .back {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; color: var(--ink-soft); font-weight: 500;
+    padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--hairline);
+    transition: all 0.3s var(--ease);
+  }
+  .nav .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  /* ────── LAYOUT ────── */
+  .page {
+    padding: 140px 0 80px;
+  }
+  .page .container {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+  }
+
+  /* ────── LEFT COLUMN ────── */
+  .intro { position: sticky; top: 120px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500; color: var(--muted); margin-bottom: 24px;
+  }
+  .eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 5.5vw, 84px);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+  h1 .italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .intro p {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 36ch;
+    margin-bottom: 28px;
+  }
+  .intro .promise {
+    border-top: 1px solid var(--hairline);
+    padding-top: 24px;
+    margin-top: 32px;
+  }
+  .intro .promise .row {
+    display: flex; gap: 12px; padding: 8px 0;
+    align-items: flex-start;
+    font-size: 14px; color: var(--ink-soft);
+  }
+  .intro .promise .row::before {
+    content: ''; flex-shrink: 0;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    margin-top: 9px;
+  }
+
+  /* ────── FORM ────── */
+  .form-card {
+    background: var(--card);
+    border: 1px solid var(--hairline-soft);
+    border-radius: 24px;
+    padding: clamp(28px, 4vw, 48px);
+  }
+  .form-step {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-bottom: 8px;
+  }
+  .field-group {
+    display: grid;
+    gap: 20px;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label {
+    font-size: 13px; font-weight: 500;
+    color: var(--ink); letter-spacing: -0.005em;
+  }
+  .field label .req { color: var(--accent); }
+  .field label .hint { color: var(--muted); font-weight: 400; }
+
+  .input, .select, .textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    font-size: 15px;
+    color: var(--ink);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+  }
+  .input:hover, .select:hover, .textarea:hover { border-color: rgba(28,24,20,0.2); }
+  .input:focus, .select:focus, .textarea:focus {
+    border-color: var(--ink);
+    background: #FFFCF6;
+  }
+  .input::placeholder, .textarea::placeholder { color: var(--muted); }
+  .textarea { resize: vertical; min-height: 140px; line-height: 1.5; font-family: inherit; }
+  .select {
+    appearance: none; -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%231C1814' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  /* segmented controls (radio chips) */
+  .chip-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .chip {
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--hairline);
+    background: var(--bg);
+    font-size: 13px; font-weight: 500;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s var(--ease);
+    font-family: inherit;
+  }
+  .chip:hover { border-color: rgba(28,24,20,0.25); }
+  .chip[aria-pressed="true"] {
+    background: var(--ink); color: var(--bg); border-color: var(--ink);
+  }
+
+  .section-divider {
+    height: 1px; background: var(--hairline);
+    margin: 32px 0;
+  }
+
+  /* submit row */
+  .submit-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    margin-top: 36px;
+  }
+  .submit-row .note {
+    font-size: 13px; color: var(--muted);
+    max-width: 28ch;
+  }
+  .btn-submit {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 28px;
+    background: var(--accent);
+    color: #FFF7F0;
+    border-radius: 999px;
+    font-size: 15px; font-weight: 500;
+    transition: transform 0.3s var(--ease), background 0.3s;
+  }
+  .btn-submit:hover { transform: translateY(-2px); background: #D84A2C; }
+  .btn-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+  .field.invalid .input,
+  .field.invalid .select,
+  .field.invalid .textarea {
+    border-color: var(--accent);
+    background: rgba(229,90,60,0.04);
+  }
+  .err-msg {
+    font-size: 12px; color: var(--accent); display: none;
+  }
+  .field.invalid .err-msg { display: block; }
+
+  /* ────── SUCCESS SCREEN ────── */
+  .success {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+  }
+  .success.show { display: block; }
+  .form-card.hide { display: none; }
+  .success .check {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #FFF7F0;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px;
+    animation: pop 0.5s var(--ease);
+  }
+  @keyframes pop {
+    0% { transform: scale(0.6); opacity: 0; }
+    60% { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+  .success h2 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 500; letter-spacing: -0.035em; line-height: 1;
+    margin-bottom: 16px;
+  }
+  .success h2 .italic {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--accent);
+  }
+  .success .sub {
+    font-size: 17px; color: var(--ink-soft);
+    max-width: 42ch; margin: 0 auto 32px;
+  }
+  .payload-card {
+    text-align: left;
+    background: var(--bg-soft);
+    border: 1px solid var(--hairline-soft);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 0 auto 24px;
+    max-width: 560px;
+  }
+  .payload-card .ph {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-bottom: 12px;
+  }
+  .payload-card pre {
+    font-family: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+  .success .actions {
+    display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  }
+  .success .actions .btn-link {
+    padding: 13px 22px;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    border: 1px solid var(--hairline);
+    color: var(--ink);
+    transition: all 0.3s var(--ease);
+  }
+  .success .actions .btn-link.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .success .actions .btn-link:hover { transform: translateY(-2px); }
+
+  /* ────── RESPONSIVE ────── */
+  @media (max-width: 880px) {
+    .page .container { grid-template-columns: 1fr; }
+    .intro { position: static; }
+  }
+  @media (max-width: 560px) {
+    .field-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="10" height="10" rx="2" fill="#1C1814" />
+        <rect x="15" y="3" width="10" height="10" rx="2" fill="#E55A3C" />
+        <rect x="3" y="15" width="10" height="10" rx="2" fill="#E55A3C" />
+        <rect x="15" y="15" width="10" height="10" rx="2" fill="#1C1814" />
+      </svg>
+      <span>PixxelNest</span>
+    </a>
+    <a href="index.html" class="back">← Back to home</a>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="container">
+    <aside class="intro">
+      <div class="eyebrow">Book a call</div>
+      <h1>
+        A real <br />
+        <span class="italic">conversation,</span> <br />
+        first.
+      </h1>
+      <p>
+        Tell us a bit about your project. We will write back in one working day and set up a 30-minute call. No slides, no pitch, just a chat about what you need.
+      </p>
+
+      <div class="promise">
+        <div class="row">A human reads every message, usually same day.</div>
+        <div class="row">We will tell you up front if we are the wrong fit.</div>
+        <div class="row">No pitch decks, no fluff, no drama.</div>
+      </div>
+    </aside>
+
+    <!-- ── FORM ── -->
+    <form class="form-card" id="bookForm" novalidate>
+      <div class="form-step">01 · About you</div>
+      <div class="field-group">
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Name <span class="req">*</span></label>
+            <input id="name" name="name" class="input" type="text" placeholder="Your full name" required />
+            <span class="err-msg">Please add a name.</span>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" class="input" type="email" placeholder="you@company.com" required />
+            <span class="err-msg">Please add a valid email.</span>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="phone">Phone <span class="hint">(optional)</span></label>
+            <input id="phone" name="phone" class="input" type="tel" placeholder="+91 98765 43210" inputmode="tel" autocomplete="tel" />
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" class="input" type="text" placeholder="Your company or studio" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field" style="grid-column: 1 / -1;">
+            <label for="website">Existing website <span class="hint">(optional)</span></label>
+            <input id="website" name="website" class="input" type="url" placeholder="https://…" />
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="form-step">02 · About the work</div>
+      <div class="field-group">
+        <div class="field">
+          <label>Project type <span class="req">*</span></label>
+          <div class="chip-row" id="projectTypeRow" role="radiogroup" aria-label="Project type">
+            <button type="button" class="chip" data-value="Landing">Landing</button>
+            <button type="button" class="chip" data-value="Brand">Brand</button>
+            <button type="button" class="chip" data-value="Social">Social</button>
+            <button type="button" class="chip" data-value="Ads">Ads</button>
+            <button type="button" class="chip" data-value="SEO">SEO</button>
+            <button type="button" class="chip" data-value="Care">Care</button>
+            <button type="button" class="chip" data-value="Not sure">Not sure</button>
+          </div>
+          <span class="err-msg">Pick at least one.</span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="budget">Budget range</label>
+            <select id="budget" name="budget" class="select">
+              <option value="">Pick a range</option>
+              <option value="< ₹1,00,000">Under ₹1,00,000</option>
+              <option value="₹1,00,000 – ₹3,00,000">₹1,00,000 – ₹3,00,000</option>
+              <option value="₹3,00,000 – ₹6,00,000">₹3,00,000 – ₹6,00,000</option>
+              <option value="₹6,00,000 – ₹12,00,000">₹6,00,000 – ₹12,00,000</option>
+              <option value="₹12,00,000+">₹12,00,000+</option>
+              <option value="Open / Let's talk">Open / Let's talk</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="timeline">Timeline</label>
+            <select id="timeline" name="timeline" class="select">
+              <option value="">When do you want to start?</option>
+              <option value="ASAP">ASAP, like yesterday</option>
+              <option value="This month">This month</option>
+              <option value="Next 1-3 months">Next 1-3 months</option>
+              <option value="Q3 / Q4">Q3 / Q4</option>
+              <option value="No rush">No rush, just exploring</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="brief">Tell us about the project <span class="req">*</span></label>
+          <textarea id="brief" name="brief" class="textarea"
+            placeholder="What are you building? Who is it for? What does success look like? No need to polish it. Just the gist."
+            required></textarea>
+          <span class="err-msg">A few sentences would help us a lot.</span>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="form-step">03 · One last thing</div>
+      <div class="field-group">
+        <div class="field">
+          <label for="source">How did you hear about us? <span class="hint">(optional)</span></label>
+          <select id="source" name="source" class="select">
+            <option value="">Pick one</option>
+            <option value="Word of mouth">Word of mouth</option>
+            <option value="Instagram">Instagram</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Google search">Google search</option>
+            <option value="Are.na / design press">Are.na / design press</option>
+            <option value="Past client">Past client</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <span class="note">By sending, you agree to one email reply from us. No newsletter, no mailing list.</span>
+        <button type="submit" class="btn-submit" id="submitBtn">Send → start the conversation</button>
+      </div>
+      <p id="submitError" role="alert" style="display:none;margin-top:16px;font-size:13px;color:var(--accent)">
+        That didn't go through — our send service may be down for a moment. Please try again, or email <a href="mailto:support@pixxelnest.com" style="text-decoration:underline">support@pixxelnest.com</a> directly.
+      </p>
+    </form>
+
+    <!-- ── SUCCESS ── -->
+    <section class="success" id="success" aria-live="polite">
+      <div class="check" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12.5l5 5L20 6" />
+        </svg>
+      </div>
+      <h2>Got it. <span class="italic">Thank you.</span></h2>
+      <p class="sub">
+        Your message just went to <strong>support@pixxelnest.com</strong>. A human reads every one — expect a reply within one working day.
+      </p>
+
+      <div class="actions">
+        <a href="index.html" class="btn-link primary">← Back to home</a>
+        <a href="work.html" class="btn-link">See our work</a>
+        <button type="button" class="btn-link" id="newSubmission">Submit another</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+  const form = document.getElementById('bookForm');
+  const successEl = document.getElementById('success');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Project-type chip group (multi-select)
+  const chipRow = document.getElementById('projectTypeRow');
+  chipRow.querySelectorAll('.chip').forEach(c => {
+    c.setAttribute('aria-pressed', 'false');
+    c.addEventListener('click', () => {
+      const pressed = c.getAttribute('aria-pressed') === 'true';
+      c.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+      // clear invalid state on parent field
+      c.closest('.field').classList.remove('invalid');
+    });
+  });
+
+  function selectedProjectTypes() {
+    return Array.from(chipRow.querySelectorAll('.chip[aria-pressed="true"]'))
+      .map(c => c.dataset.value);
+  }
+
+  function validateEmail(s) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());
+  }
+
+  // Clear invalid state on input
+  form.querySelectorAll('.input, .textarea, .select').forEach(el => {
+    el.addEventListener('input', () => el.closest('.field')?.classList.remove('invalid'));
+    el.addEventListener('change', () => el.closest('.field')?.classList.remove('invalid'));
+  });
+
+  // Pre-fill the brief if we arrived from a "Start a project like this" case-study link
+  const refClient = new URLSearchParams(location.search).get('ref');
+  if (refClient) {
+    const briefField = document.getElementById('brief');
+    briefField.value = `Hi — I saw the ${refClient} project and want something like it. `;
+  }
+
+  const submitError = document.getElementById('submitError');
+  const defaultBtnLabel = submitBtn.textContent;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    let ok = true;
+    // Name
+    const nameEl = document.getElementById('name');
+    if (!nameEl.value.trim()) { nameEl.closest('.field').classList.add('invalid'); ok = false; }
+    // Email
+    const emailEl = document.getElementById('email');
+    if (!validateEmail(emailEl.value)) { emailEl.closest('.field').classList.add('invalid'); ok = false; }
+    // Project types
+    const ptypes = selectedProjectTypes();
+    if (ptypes.length === 0) { chipRow.closest('.field').classList.add('invalid'); ok = false; }
+    // Brief
+    const briefEl = document.getElementById('brief');
+    if (briefEl.value.trim().length < 10) { briefEl.closest('.field').classList.add('invalid'); ok = false; }
+
+    if (!ok) {
+      // scroll first invalid into view
+      const firstInvalid = form.querySelector('.field.invalid');
+      if (firstInvalid) firstInvalid.querySelector('input, textarea, select, .chip')?.focus();
+      return;
+    }
+
+    submitError.style.display = 'none';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const payload = {
+      name: nameEl.value.trim(),
+      email: emailEl.value.trim(),
+      phone: document.getElementById('phone').value.trim() || null,
+      company: document.getElementById('company').value.trim() || null,
+      website: document.getElementById('website').value.trim() || null,
+      projectTypes: ptypes,
+      budget: document.getElementById('budget').value || null,
+      timeline: document.getElementById('timeline').value || null,
+      brief: briefEl.value.trim(),
+      source: document.getElementById('source').value || null,
+    };
+
+    try {
+      const res = await fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`Server responded ${res.status}`);
+
+      form.classList.add('hide');
+      successEl.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      console.error('Booking submission failed', err);
+      submitError.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = defaultBtnLabel;
+    }
+  });
+
+  // Submit another → reset
+  document.getElementById('newSubmission').addEventListener('click', () => {
+    form.reset();
+    chipRow.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
+    form.querySelectorAll('.field.invalid').forEach(f => f.classList.remove('invalid'));
+    submitBtn.disabled = false;
+    submitBtn.textContent = defaultBtnLabel;
+    successEl.classList.remove('show');
+    form.classList.remove('hide');
+    document.getElementById('name').focus();
+  });
+</script>
+
+</body>
+</html>

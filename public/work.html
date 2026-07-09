@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work · PixxelNest</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #F4EEE3;
+    --bg-soft: #EFE6D6;
+    --card: #FAF5EA;
+    --card-highlight: #F2DFC4;
+    --ink: #1C1814;
+    --ink-soft: #3A332C;
+    --muted: #8A8074;
+    --hairline: rgba(28, 24, 20, 0.10);
+    --hairline-soft: rgba(28, 24, 20, 0.06);
+    --accent: #E55A3C;
+    --accent-soft: #F18F76;
+    --font-display: 'Geist', 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --container-px: clamp(20px, 4vw, 56px);
+    --container-max: 1320px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+    font-feature-settings: "ss01", "cv11";
+    min-height: 100vh;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5; mix-blend-mode: multiply; z-index: 1;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-px);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ────── NAV ────── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    padding: 18px 0;
+    background: rgba(244,238,227,0.82);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+  .brand svg { width: 28px; height: 28px; }
+  .nav .back {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; color: var(--ink-soft); font-weight: 500;
+    padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--hairline);
+    transition: all 0.3s var(--ease);
+  }
+  .nav .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  /* ────── HEADER ────── */
+  .page-head {
+    padding: 160px 0 56px;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500; color: var(--muted); margin-bottom: 24px;
+  }
+  .eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+    max-width: 14ch;
+    margin-bottom: 32px;
+  }
+  h1 .italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .lede {
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.45;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin-bottom: 40px;
+  }
+
+  /* ────── FILTER ROW ────── */
+  .filters {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    padding: 24px 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 56px;
+  }
+  .filters .label {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-right: 16px;
+  }
+  .chip {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--hairline);
+    font-size: 13px; font-weight: 500;
+    color: var(--ink-soft);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+    font-family: inherit;
+  }
+  .chip:hover { border-color: var(--ink); color: var(--ink); }
+  .chip.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .count {
+    margin-left: auto;
+    font-size: 13px; color: var(--muted);
+  }
+
+  /* ────── GRID ────── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    padding-bottom: 120px;
+  }
+  .case {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    min-height: 360px;
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    color: #FFF7F0;
+    cursor: pointer;
+    transition: transform 0.5s var(--ease);
+    background-size: cover;
+    background-position: center;
+    text-decoration: none;
+  }
+  .case::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.10) 55%, transparent 100%);
+    z-index: 1;
+  }
+  .case > * { position: relative; z-index: 2; }
+  .case:hover { transform: translateY(-4px); }
+
+  /* span helpers */
+  .span-12 { grid-column: span 12; min-height: 460px; }
+  .span-8  { grid-column: span 8; min-height: 440px; }
+  .span-7  { grid-column: span 7; min-height: 420px; }
+  .span-6  { grid-column: span 6; min-height: 400px; }
+  .span-5  { grid-column: span 5; min-height: 420px; }
+  .span-4  { grid-column: span 4; min-height: 360px; }
+
+  .case .tag {
+    position: absolute; top: 24px; left: 24px; z-index: 3;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: #FFF7F0;
+  }
+  .case .year {
+    position: absolute; top: 24px; right: 24px; z-index: 3;
+    font-family: var(--font-display); font-size: 13px;
+    opacity: 0.75; font-weight: 500;
+  }
+  .case h3 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.2vw, 36px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .case .case-desc {
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.45;
+    max-width: 42ch;
+    margin-bottom: 18px;
+  }
+  .case .metrics {
+    display: flex; gap: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+  .case .metric {
+    display: flex; flex-direction: column;
+  }
+  .case .metric .n {
+    font-family: var(--font-display);
+    font-size: 18px; font-weight: 600;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .case .metric .l {
+    font-size: 10px; opacity: 0.7;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-weight: 500; margin-top: 4px;
+  }
+  .case .case-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 14px; font-size: 12px; font-weight: 500;
+    opacity: 0; transform: translateY(6px);
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+  .case:hover .case-cta, .case:focus-visible .case-cta { opacity: 0.9; transform: translateY(0); }
+
+  /* hidden when filtered out */
+  .case.hidden { display: none; }
+
+  /* ────── FOOTER CTA ────── */
+  .cta-strip {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 96px 0;
+    position: relative; z-index: 2;
+  }
+  .cta-strip .container {
+    display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  }
+  .cta-strip h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 500; letter-spacing: -0.04em; line-height: 1;
+    max-width: 16ch;
+  }
+  .cta-strip h2 .italic {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--accent-soft);
+  }
+  .cta-strip .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 24px; border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    transition: transform 0.3s var(--ease), background 0.3s, color 0.3s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: #FFF7F0; }
+  .btn-ghost { color: var(--bg); border: 1px solid rgba(244,238,227,0.25); }
+  .btn-ghost:hover { background: var(--accent); border-color: var(--accent); color: #FFF7F0; }
+
+  /* responsive */
+  @media (max-width: 900px) {
+    .span-12, .span-8, .span-7, .span-6, .span-5, .span-4 { grid-column: span 12; min-height: 320px; }
+  }
+  @media (max-width: 540px) {
+    .filters { gap: 6px; }
+    .chip { padding: 6px 12px; font-size: 12px; }
+    .count { width: 100%; margin-left: 0; padding-top: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="10" height="10" rx="2" fill="#1C1814" />
+        <rect x="15" y="3" width="10" height="10" rx="2" fill="#E55A3C" />
+        <rect x="3" y="15" width="10" height="10" rx="2" fill="#E55A3C" />
+        <rect x="15" y="15" width="10" height="10" rx="2" fill="#1C1814" />
+      </svg>
+      <span>PixxelNest</span>
+    </a>
+    <a href="index.html" class="back">← Back to home</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="container">
+    <div class="eyebrow">The archive</div>
+    <h1>
+      Every project, <br />
+      <span class="italic">in one place.</span>
+    </h1>
+    <p class="lede">
+      A list of our recent work: brand sprints, landing pages, social plans, and care plans.
+      Some new, some a few years old. Hover to see the numbers. Click a card to start a project like it.
+    </p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="filters">
+      <span class="label">Filter</span>
+      <button class="chip active" data-filter="all">All work</button>
+      <button class="chip" data-filter="brand">Brand</button>
+      <button class="chip" data-filter="web">Web</button>
+      <button class="chip" data-filter="social">Social</button>
+      <button class="chip" data-filter="ads">Ads</button>
+      <button class="chip" data-filter="care">Care</button>
+      <span class="count" id="count">12 projects</span>
+    </div>
+
+    <div class="grid" id="grid">
+      <!-- populated by JS so filtering is simple -->
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <h2>Got a brief? <br /><span class="italic">Let's hear it.</span></h2>
+    <div class="actions">
+      <a href="book.html" class="btn btn-primary">Book a call →</a>
+      <a href="index.html" class="btn btn-ghost">Back to home</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const cases = [
+    { tag: 'Brand · Web', cats: ['brand', 'web'], year: '2025', client: 'Foreland Coffee',
+      desc: "A specialty roaster's rebrand and DTC site that 3.4×'d email signups.",
+      bg: 'linear-gradient(135deg, #D4623F 0%, #8B3A22 100%)',
+      span: 'span-8', metrics: [['3.4×', 'Email'], ['+62%', 'AOV'], ['14d', 'Sprint']] },
+    { tag: 'Landing · Ads', cats: ['web', 'ads'], year: '2025', client: 'Northbound Outdoor',
+      desc: 'A campaign page + ads that cut CAC by 41% across three quarters.',
+      bg: 'linear-gradient(135deg, #2D3F36 0%, #1F2A24 100%)',
+      span: 'span-4', metrics: [['-41%', 'CAC'], ['2.8×', 'CTR']] },
+    { tag: 'Social', cats: ['social'], year: '2024', client: 'Maison Vie',
+      desc: '12 months of editorial-grade Instagram for a Paris-based atelier.',
+      bg: 'linear-gradient(135deg, #C9B89E 0%, #8E7A60 100%)',
+      span: 'span-5', metrics: [['4.1×', 'Followers'], ['12mo', 'Retainer']] },
+    { tag: 'Brand', cats: ['brand'], year: '2024', client: 'Halcyon Health',
+      desc: 'A full new look for a telehealth platform. Soft, clinical, alive.',
+      bg: 'linear-gradient(135deg, #6B8FA5 0%, #3C5970 100%)',
+      span: 'span-7', metrics: [['7d', 'Sprint'], ['100%', 'Adopted']] },
+    { tag: 'Web · Care', cats: ['web', 'care'], year: '2024', client: 'Ortega & Co',
+      desc: 'A bespoke estate-law site with a quiet, confident voice. Ongoing care since launch.',
+      bg: 'linear-gradient(135deg, #4A3D2E 0%, #2A2218 100%)',
+      span: 'span-4', metrics: [['+88%', 'Inquiries']] },
+    { tag: 'Brand · Social', cats: ['brand', 'social'], year: '2024', client: 'Quiet Studio',
+      desc: "A sister-studio's launch identity and 90-day social rollout.",
+      bg: 'linear-gradient(135deg, #D9A78A 0%, #B3795B 100%)',
+      span: 'span-4', metrics: [['90d', 'Rollout']] },
+    { tag: 'Ads', cats: ['ads'], year: '2023', client: 'Birch & Bone',
+      desc: 'Six months of paid social for a furniture maker. Down CAC, up basket.',
+      bg: 'linear-gradient(135deg, #8A6F47 0%, #5B4828 100%)',
+      span: 'span-4', metrics: [['-33%', 'CAC'], ['+24%', 'AOV']] },
+    { tag: 'Web', cats: ['web'], year: '2023', client: 'Stillwater Kombucha',
+      desc: 'A DTC site rebuild that doubled order frequency in 90 days.',
+      bg: 'linear-gradient(135deg, #6B8E6F 0%, #3D5C42 100%)',
+      span: 'span-6', metrics: [['2.1×', 'Order freq'], ['+47%', 'LTV']] },
+    { tag: 'Brand', cats: ['brand'], year: '2023', client: 'Folk Records',
+      desc: 'An indie label rebrand, end-to-end. Logo, type, sleeve system.',
+      bg: 'linear-gradient(135deg, #B07050 0%, #6E3F26 100%)',
+      span: 'span-6', metrics: [['12', 'Sleeves shipped']] },
+    { tag: 'Care · Web', cats: ['care', 'web'], year: '2023', client: 'Heron Architects',
+      desc: 'A custom Statamic site + a 2-year care retainer. Quiet, surgical edits.',
+      bg: 'linear-gradient(135deg, #44504D 0%, #232B29 100%)',
+      span: 'span-5', metrics: [['24mo', 'Retainer']] },
+    { tag: 'Social', cats: ['social'], year: '2022', client: 'Pacific Bath Co',
+      desc: '6-month editorial social retainer for an upstart bath brand.',
+      bg: 'linear-gradient(135deg, #C49A8C 0%, #8C6253 100%)',
+      span: 'span-4', minH: 320, metrics: [['+180%', 'Engagement']] },
+    { tag: 'Brand · Web', cats: ['brand', 'web'], year: '2022', client: 'Atrium Gallery',
+      desc: 'A complete identity + booking site for a Brooklyn gallery.',
+      bg: 'linear-gradient(135deg, #2E2A2E 0%, #1A1718 100%)',
+      span: 'span-3', minH: 320, metrics: [['+62%', 'Bookings']] },
+  ];
+
+  const grid = document.getElementById('grid');
+  const countEl = document.getElementById('count');
+
+  // Inject a 3-col helper for the last narrow card
+  const styleTag = document.createElement('style');
+  styleTag.textContent = `
+    .span-3 { grid-column: span 3; min-height: 360px; }
+    @media (max-width: 900px) { .span-3 { grid-column: span 12; min-height: 320px; } }
+  `;
+  document.head.appendChild(styleTag);
+
+  function render(filter) {
+    grid.innerHTML = '';
+    const visible = cases.filter(c => filter === 'all' || c.cats.includes(filter));
+    countEl.textContent = `${visible.length} project${visible.length === 1 ? '' : 's'}`;
+    visible.forEach(c => {
+      const a = document.createElement('a');
+      a.className = `case ${c.span}`;
+      a.href = `book.html?ref=${encodeURIComponent(c.client)}`;
+      a.style.background = c.bg;
+      a.innerHTML = `
+        <span class="tag">${c.tag}</span>
+        <span class="year">${c.year}</span>
+        <h3>${c.client}</h3>
+        <p class="case-desc">${c.desc}</p>
+        <div class="metrics">
+          ${c.metrics.map(([n, l]) => `<div class="metric"><span class="n">${n}</span><span class="l">${l}</span></div>`).join('')}
+        </div>
+        <span class="case-cta">Start a project like this <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></span>
+      `;
+      grid.appendChild(a);
+    });
+  }
+
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      render(chip.dataset.filter);
+    });
+  });
+
+  render('all');
+</script>
+
+</body>
+</html>
