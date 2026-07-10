@@ -96,6 +96,14 @@
   .type-specimen .sample-serif-italic { font-family: 'Fraunces Display', serif; font-weight: 500; font-style: italic; }
   .type-specimen .sample-sans { font-family: 'Inter', sans-serif; }
 
+  .space-row { display: flex; align-items: center; gap: 20px; padding: 10px 0; border-top: 1px solid var(--ink-softer); }
+  .space-row:first-child { border-top: none; }
+  .space-row .bar { height: 10px; background: var(--coral); border-radius: 3px; }
+  .space-row .val { font-family: 'SF Mono', monospace; font-size: 12px; color: var(--paper); width: 70px; flex-shrink: 0; }
+  .space-row .use { font-size: 13px; color: var(--paper-faint); }
+  .space-group { margin-bottom: 28px; }
+  .space-group .grp-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brass); margin-bottom: 4px; }
+
   .comp-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin: 20px 0; }
   .btn { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-decoration: none; }
   .btn-primary { background: var(--coral); color: var(--ink); }
@@ -140,6 +148,7 @@
     <div class="grp">Foundations</div>
     <a href="#color">Color</a>
     <a href="#type">Typography</a>
+    <a href="#spacing">Spacing</a>
     <a href="#motion">Motion & interaction</a>
 
     <div class="grp">Components</div>
@@ -209,6 +218,35 @@
       <div class="type-specimen">
         <div class="label">Inter · 400 / 500 · Body, labels, UI</div>
         <div class="sample-sans" style="font-size:16px">We build brands, websites, and ad campaigns for founders. No templates. Just work made for you.</div>
+      </div>
+    </section>
+
+    <section class="ds-section" id="spacing">
+      <h2>Spacing</h2>
+      <p>Not a strict fixed grid, a mix of fixed values for component-level spacing and fluid <code>clamp()</code> values for section/page layout, so it scales smoothly across screen sizes instead of jumping at breakpoints.</p>
+
+      <div class="space-group">
+        <div class="grp-label">Component-level (fixed)</div>
+        <div class="space-row"><div class="val">4–8px</div><div class="bar" style="width:8px"></div><div class="use">Icon-to-text gaps, tight inline spacing</div></div>
+        <div class="space-row"><div class="val">12–16px</div><div class="bar" style="width:16px"></div><div class="use">List item padding, form field gaps</div></div>
+        <div class="space-row"><div class="val">16px</div><div class="bar" style="width:16px"></div><div class="use">Standard gap between cards in any grid</div></div>
+        <div class="space-row"><div class="val">20–24px</div><div class="bar" style="width:24px"></div><div class="use">Card internal padding, smaller cards</div></div>
+        <div class="space-row"><div class="val">24–32px</div><div class="bar" style="width:32px"></div><div class="use">Card internal padding, standard cards</div></div>
+      </div>
+
+      <div class="space-group">
+        <div class="grp-label">Section / page-level (fluid, via clamp)</div>
+        <div class="space-row"><div class="val">28–48px</div><div class="bar" style="width:48px"></div><div class="use">Page margin — horizontal inset on every section and the nav</div></div>
+        <div class="space-row"><div class="val">48–80px</div><div class="bar" style="width:80px"></div><div class="use">Heading-to-content — space below a section heading</div></div>
+        <div class="space-row"><div class="val">72–140px</div><div class="bar" style="width:140px"></div><div class="use">Section rhythm — vertical padding between major sections</div></div>
+      </div>
+
+      <div class="space-group">
+        <div class="grp-label">Corner radius</div>
+        <div class="space-row"><div class="val">10–12px</div><div class="bar" style="width:12px;border-radius:12px"></div><div class="use">Small elements, icon tiles, form inputs</div></div>
+        <div class="space-row"><div class="val">16px</div><div class="bar" style="width:16px;border-radius:16px"></div><div class="use">Standard cards</div></div>
+        <div class="space-row"><div class="val">20px</div><div class="bar" style="width:20px;border-radius:20px"></div><div class="use">Larger cards, hero images</div></div>
+        <div class="space-row"><div class="val">999px</div><div class="bar" style="width:36px;border-radius:999px"></div><div class="use">Pill buttons, badges</div></div>
       </div>
     </section>
 
