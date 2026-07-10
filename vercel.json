@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/service.html", "has": [{ "type": "query", "key": "id", "value": "landing-pages" }], "destination": "/landing-pages.html", "permanent": true },
+    { "source": "/service.html", "has": [{ "type": "query", "key": "id", "value": "brand-in-a-week" }], "destination": "/brand-in-a-week.html", "permanent": true },
+    { "source": "/service.html", "has": [{ "type": "query", "key": "id", "value": "monthly-social-pack" }], "destination": "/monthly-social-pack.html", "permanent": true },
+    { "source": "/service.html", "has": [{ "type": "query", "key": "id", "value": "ads-management" }], "destination": "/ads-management.html", "permanent": true },
+    { "source": "/service.html", "has": [{ "type": "query", "key": "id", "value": "seo-starter" }], "destination": "/seo-starter.html", "permanent": true },
+    { "source": "/service.html", "has": [{ "type": "query", "key": "id", "value": "website-care-plan" }], "destination": "/website-care-plan.html", "permanent": true },
+    { "source": "/service.html", "destination": "/", "permanent": false }
+  ]
+}

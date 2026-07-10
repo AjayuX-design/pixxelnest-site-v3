@@ -30,7 +30,7 @@
 }
 </style>
 <meta charset="UTF-8" />
-<title>PixxelNesst: Book a Call</title>
+<title>PixxelNesst: Ads Management Service</title>
 <style>
   @view-transition { navigation: auto; }
   :root {
@@ -260,75 +260,59 @@
     #cursor-arrow { display: none; }
   }
 
-  .book-hero {
-    padding: clamp(48px, 8vw, 88px) clamp(28px, 4vw, 48px) clamp(24px, 4vw, 40px);
+  .svc-hero {
+    padding: clamp(48px, 8vw, 96px) clamp(28px, 4vw, 48px) clamp(72px, 10vw, 120px);
     max-width: 1320px; margin: 0 auto; position: relative; z-index: 2;
   }
-  .book-hero h1 {
+  .svc-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(40px, 5vw, 72px); align-items: center; }
+  .svc-hero h1 {
     font-family: 'Fraunces Display', serif; font-weight: 600;
-    font-size: clamp(38px, 5.4vw, 70px); line-height: 1.03; letter-spacing: -0.025em;
-    margin: 18px 0 20px; text-wrap: balance; max-width: 14ch;
+    font-size: clamp(38px, 5.2vw, 68px); line-height: 1.04; letter-spacing: -0.025em;
+    margin: 18px 0 22px; text-wrap: balance;
   }
-  .book-hero h1 em {
+  .svc-hero h1 em {
     font-style: italic; font-weight: 500;
     background: linear-gradient(100deg, var(--coral) 30%, var(--brass) 90%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .book-hero p.lede { font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.15vw, 17px); line-height: 1.6; color: var(--paper-dim); max-width: 46ch; margin: 0; }
+  .svc-hero p.lede { font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.15vw, 17px); line-height: 1.6; color: var(--paper-dim); max-width: 46ch; margin: 0 0 32px; }
+  .svc-hero .cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+  .svc-hero .proof-line { font-size: 13px; color: var(--paper-faint); }
+  .svc-hero .proof-line strong { color: var(--coral); font-weight: 600; }
+  .svc-hero-media { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 3; border: 1px solid var(--ink-softer); }
+  .svc-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--paper-faint); text-decoration: none; margin-bottom: 18px; transition: color 0.3s var(--ease-out); }
+  .back-link:hover { color: var(--coral); }
+  @media (max-width: 900px) { .svc-hero-grid { grid-template-columns: 1fr; } .svc-hero-media { order: -1; } }
 
-  .book-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: clamp(32px, 4vw, 64px); align-items: start; max-width: 1320px; margin: 0 auto; padding: clamp(24px, 4vw, 40px) clamp(28px, 4vw, 48px) clamp(96px, 12vw, 160px); position: relative; z-index: 2; }
-  @media (max-width: 900px) { .book-grid { grid-template-columns: 1fr; } }
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .feature-card {
+    background: var(--ink-soft); border: 1px solid var(--ink-softer); border-radius: 16px;
+    padding: clamp(24px, 2.6vw, 32px);
+    transition: transform 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+  }
+  .feature-card:hover { transform: translateY(-4px); border-color: var(--brass-dim); }
+  .feature-icon {
+    width: 40px; height: 40px; border-radius: 10px; background: var(--ink-softer);
+    border: 1px solid var(--ink-softer); color: var(--coral);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+  }
+  .feature-card h4 { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 20px; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .feature-card p { font-size: 14px; color: var(--paper-dim); margin: 0; line-height: 1.55; }
+  @media (max-width: 720px) { .feature-grid { grid-template-columns: 1fr; } }
 
-  .book-form { background: var(--ink-soft); border: 1px solid var(--ink-softer); border-radius: 20px; padding: clamp(28px, 3.4vw, 44px); }
-  .field { margin-bottom: 22px; }
-  .field label {
-    display: block; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--paper-faint); margin-bottom: 10px;
-  }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } }
-  .field input, .field select, .field textarea {
-    width: 100%; background: var(--ink); border: 1px solid var(--ink-softer); border-radius: 10px;
-    padding: 13px 16px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--paper);
-    transition: border-color 0.3s var(--ease-out); appearance: none;
-  }
-  .field select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23A06B3A' stroke-width='1.5'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 16px center; padding-right: 36px;
-  }
-  .field textarea { resize: vertical; min-height: 110px; font-family: 'Inter', sans-serif; line-height: 1.5; }
-  .field input::placeholder, .field textarea::placeholder { color: var(--paper-faint); }
-  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--coral); }
-  .field-hint { font-size: 12px; color: var(--paper-faint); margin-top: 6px; }
-  .book-submit {
-    width: 100%; justify-content: center; border: none; cursor: pointer;
-    font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15px;
-  }
-  .book-note { font-size: 12px; color: var(--paper-faint); text-align: center; margin-top: 16px; }
-  .price-estimate {
-    display: none; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-    background: var(--ink-soft); border: 1px solid var(--brass-dim); border-radius: 12px;
-    padding: 16px 20px; margin-bottom: 22px; animation: testiIn 0.4s var(--ease-out);
-  }
-  .price-estimate.show { display: flex; }
-  .price-estimate .pe-label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper-faint); }
-  .price-estimate .pe-range { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 20px; color: var(--coral); }
-  .price-estimate .pe-note { font-size: 12px; color: var(--paper-faint); width: 100%; }
-  .form-status { margin-top: 18px; padding: 14px 18px; border-radius: 10px; font-size: 13px; display: none; }
-  .form-status.show { display: block; }
-  .form-status.ok { background: rgba(160, 107, 58, 0.15); border: 1px solid var(--brass); color: var(--paper); }
-  .form-status.err { background: rgba(224, 90, 90, 0.1); border: 1px solid rgba(224, 90, 90, 0.5); color: var(--paper); }
+  .single-price { max-width: 420px; margin: 0 auto; text-align: left; }
 
-  .book-side { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 100px; }
-  .side-card { background: var(--ink-soft); border: 1px solid var(--ink-softer); border-radius: 16px; padding: clamp(24px, 2.6vw, 30px); }
-  .side-card h4 { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 19px; margin: 0 0 18px; letter-spacing: -0.01em; }
-  .next-step { display: grid; grid-template-columns: 26px 1fr; gap: 12px; padding: 12px 0; }
-  .next-step .n { font-family: 'Fraunces Display', serif; font-style: italic; font-weight: 500; color: var(--brass); font-size: 16px; }
-  .next-step .t { font-size: 14px; color: var(--paper-dim); line-height: 1.5; }
-  .next-step .t strong { color: var(--paper); font-weight: 600; }
-  .side-card .email-line { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--paper-dim); margin-top: 4px; }
-  .side-card .email-line a { color: var(--coral); text-decoration: none; }
-  .side-card .email-line a:hover { text-decoration: underline; }
+  .more-services { max-width: 1320px; margin: 0 auto; padding: 0 clamp(28px, 4vw, 48px) clamp(56px, 7vw, 96px); }
+  .more-services .label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper-faint); margin-bottom: 16px; }
+  .more-services .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .more-services .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Inter', sans-serif; font-size: 13px; color: var(--paper-dim);
+    text-decoration: none; padding: 10px 18px; border-radius: 999px;
+    border: 1px solid var(--ink-softer); transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  }
+  .more-services .pill:hover { border-color: var(--coral); color: var(--coral); transform: translateY(-2px); }
 </style>
 <canvas id="field" aria-hidden="true"></canvas>
 <div class="glow" aria-hidden="true"></div>
@@ -342,30 +326,42 @@
   <nav class="top reveal" id="r0">
     <a href="index.html" class="mark">PixxelNesst</a>
     <div class="nav-links">
-      <a href="index.html#services-reveal">Services</a>
-      <a href="index.html#work-reveal">Testimonials</a>
-      <a href="index.html#process-reveal">Process</a>
-      <a href="index.html#pricing-reveal">Pricing</a>
-      <a href="index.html#faq-reveal">FAQ</a>
+      <a href="#included-reveal">Included</a>
+      <a href="#process-reveal">Process</a>
+      <a href="#pricing-reveal">Pricing</a>
+      <a href="#faq-reveal">FAQ</a>
     </div>
+    <a href="book.html" class="cta" data-magnetic>Book a call &rarr;</a>
     <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" id="navToggleIcon"><path d="M2 5h12M2 8h12M2 11h12"/></svg>
     </button>
   </nav>
 
   <nav class="mobile-nav" id="mobileNav">
-    <a href="index.html#services-reveal">Services</a>
-    <a href="index.html#work-reveal">Testimonials</a>
-    <a href="index.html#process-reveal">Process</a>
-    <a href="index.html#pricing-reveal">Pricing</a>
-    <a href="index.html#faq-reveal">FAQ</a>
+    <a href="#included-reveal">Included</a>
+    <a href="#process-reveal">Process</a>
+    <a href="#pricing-reveal">Pricing</a>
+    <a href="#faq-reveal">FAQ</a>
   </nav>
 
-<section class="book-hero" id="hero-reveal">
-  <div class="reveal d1">
-    <div class="eyebrow"><span class="dot"></span>Book a call</div>
-    <h1>Let&rsquo;s talk about <em>your project.</em></h1>
-    <p class="lede">Tell us a bit about what you need. We read every message ourselves and reply within one business day to set up a time.</p>
+<section class="svc-hero" id="hero-reveal">
+  <div class="svc-hero-grid">
+    <div class="reveal d1">
+      <a href="index.html#services-reveal" class="back-link">&larr; All services</a>
+      <div class="eyebrow"><span class="dot"></span>Services / Ads Management</div>
+      <h1>Ad spend that <em>pays for itself.</em></h1>
+      <p class="lede">We set up, write, and tune your ads every month. We treat your budget like our own, and we show you exactly where it goes.</p>
+      <div class="cta-row">
+        <a href="book.html" class="btn btn-primary" data-magnetic>Book a call
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+        </a>
+        <a href="#pricing-reveal" class="btn btn-outline" data-magnetic>See pricing</a>
+      </div>
+      <p class="proof-line"><strong>-41%</strong> avg. cost per lead</p>
+    </div>
+    <div class="svc-hero-media reveal d2">
+      <img src="assets/ads-management.jpg" alt="Ads Management">
+    </div>
   </div>
 </section>
 <style>
@@ -405,7 +401,10 @@
     <div class="fill" id="railFill"></div>
     <div class="dots" id="railDots">
       <button class="dot" data-target="hero-reveal"><span class="rail-label">Home</span></button>
-      <button class="dot" data-target="form-reveal"><span class="rail-label">Book a call</span></button>
+      <button class="dot" data-target="included-reveal"><span class="rail-label">Included</span></button>
+      <button class="dot" data-target="process-reveal"><span class="rail-label">Process</span></button>
+      <button class="dot" data-target="pricing-reveal"><span class="rail-label">Pricing</span></button>
+      <button class="dot" data-target="faq-reveal"><span class="rail-label">FAQ</span></button>
       <button class="dot" data-target="final-reveal"><span class="rail-label">Contact</span></button>
     </div>
   </div>
@@ -716,109 +715,142 @@
   }
 </style>
 
-<div class="book-grid" id="form-reveal">
-  <form class="book-form" id="bookForm" novalidate>
-    <div class="field-row">
-      <div class="field">
-        <label for="f-name">Your name</label>
-        <input type="text" id="f-name" name="name" placeholder="Ananya Iyer" required>
-      </div>
-      <div class="field">
-        <label for="f-email">Email</label>
-        <input type="email" id="f-email" name="email" placeholder="you&#64;company.com" required>
-      </div>
+<section class="section" id="included-reveal">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="dot"></span>What&rsquo;s included</div>
+    <h2>Everything you need. <em>Nothing extra.</em></h2>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card reveal d1">
+      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg></div>
+      <h4>Full campaign setup.</h4>
+      <p>Accounts, tracking, and targeting, done right from day one.</p>
     </div>
-    <div class="field-row">
-      <div class="field">
-        <label for="f-phone">Phone <span style="text-transform:none;">(optional)</span></label>
-        <input type="tel" id="f-phone" name="phone" placeholder="+91 00000 00000">
-      </div>
-      <div class="field">
-        <label for="f-company">Company / Brand</label>
-        <input type="text" id="f-company" name="company" placeholder="Your brand name">
-      </div>
+    <div class="feature-card reveal d2">
+      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-7-7 18-3-8-8-3z"/></svg></div>
+      <h4>Ad creative &amp; copy.</h4>
+      <p>Ads written and designed to get clicks that convert.</p>
     </div>
-    <div class="field-row">
-      <div class="field">
-        <label for="f-service">Which service?</label>
-        <select id="f-service" name="service">
-          <option>Not sure yet</option>
-          <option>Landing Pages</option>
-          <option>Brand-in-a-Week</option>
-          <option>Monthly Social Pack</option>
-          <option>Ads Management</option>
-          <option>SEO Starter</option>
-          <option>Website Care Plan</option>
-          <option>Something else</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="f-budget">Budget range <span style="text-transform:none;">(optional)</span></label>
-        <select id="f-budget" name="budget">
-          <option>Not sure yet</option>
-          <option>Under &#8377;50,000</option>
-          <option>&#8377;50,000 &ndash; &#8377;2,00,000</option>
-          <option>&#8377;2,00,000 &ndash; &#8377;5,00,000</option>
-          <option>&#8377;5,00,000+</option>
-        </select>
-      </div>
+    <div class="feature-card reveal d3">
+      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+      <h4>Ongoing optimization.</h4>
+      <p>We tune spend and targeting every week.</p>
     </div>
-    <div class="price-estimate" id="priceEstimate">
-      <div>
-        <div class="pe-label">Estimated range</div>
-        <div class="pe-range" id="peRange"></div>
-      </div>
-      <div class="pe-note">This is a starting estimate. Your exact price depends on what you need, we&rsquo;ll confirm the number on our call.</div>
+    <div class="feature-card reveal d4">
+      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 12h8M8 16h5"/></svg></div>
+      <h4>Clear monthly reporting.</h4>
+      <p>You always know exactly where your budget went.</p>
     </div>
-    <div class="field">
-      <label for="f-message">Tell us about your project</label>
-      <textarea id="f-message" name="message" placeholder="What are you trying to build or fix? The more detail, the better." minlength="10" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary book-submit" data-magnetic>
-      Send it
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-    </button>
-    <p class="book-note">No spam, no newsletter. Just us, replying to you.</p>
-    <div class="form-status" id="formStatus"></div>
-  </form>
+  </div>
+</section>
 
-  <div class="book-side">
-    <div class="side-card">
-      <h4>What happens next</h4>
-      <div class="next-step">
-        <div class="n">01</div>
-        <div class="t"><strong>We read it.</strong> A founder reads every message, usually within a few hours.</div>
-      </div>
-      <div class="next-step">
-        <div class="n">02</div>
-        <div class="t"><strong>We reply.</strong> A short email or a call time, within one business day.</div>
-      </div>
-      <div class="next-step">
-        <div class="n">03</div>
-        <div class="t"><strong>We talk.</strong> A 20 minute call to see if we&rsquo;re a fit, no pitch deck.</div>
-      </div>
+<hr class="rule" style="max-width:1320px;margin:0 auto;">
+
+<section class="section" id="process-reveal">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="dot"></span>Process</div>
+    <h2>How it <em>comes together.</em></h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-cell reveal d1">
+      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h2l2 5-2 2a12 12 0 0 0 6 6l2-2 5 2v2a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg></div>
+      <h4>Audit</h4>
+      <p>We review your offer, audience, and past ad performance.</p>
     </div>
-    <div class="side-card">
-      <h4>Prefer email?</h4>
-      <div class="email-line">
-        <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-        <a href="mailto:support@pixxelnest.com">support&#64;pixxelnest.com</a>
-      </div>
-      <div class="field-hint" style="margin-top:10px;">Mon&ndash;Fri, 9 to 6 IST</div>
+    <div class="process-cell reveal d2">
+      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></div>
+      <h4>Launch</h4>
+      <p>Campaigns go live within the first two weeks.</p>
     </div>
+    <div class="process-cell reveal d3">
+      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg></div>
+      <h4>Optimize</h4>
+      <p>Weekly tuning based on real performance data.</p>
+    </div>
+    <div class="process-cell reveal d4">
+      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+      <h4>Report</h4>
+      <p>A clear monthly summary, no jargon.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing-reveal">
+  <div class="section-head reveal" style="text-align:center;max-width:none;">
+    <div class="eyebrow" style="justify-content:center;"><span class="dot"></span>Pricing</div>
+    <h2>Straight rate, <em>no surprises.</em></h2>
+  </div>
+  <div class="single-price">
+    <div class="price-card highlight reveal d1">
+      <div class="badge">Ads Management</div>
+      <div class="name">Ads Management</div>
+      <div class="desc">Priced around your monthly ad spend.</div>
+      <div class="amount">From &#8377;30,000 <span class="unit">/month</span></div>
+      <ul>
+        <li>Full setup &amp; tracking</li>
+        <li>Ad creative &amp; copy</li>
+        <li>Weekly optimization</li>
+        <li>Monthly reporting</li>
+      </ul>
+      <a href="book.html" class="btn btn-primary" style="justify-content:center;" data-magnetic>Talk about your budget &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<div class="more-services">
+  <div class="label">Explore other services</div>
+  <div class="pill-row">
+      <a href="landing-pages.html" class="pill">Landing Pages &rarr;</a>
+      <a href="brand-in-a-week.html" class="pill">Brand-in-a-Week &rarr;</a>
+      <a href="monthly-social-pack.html" class="pill">Monthly Social Pack &rarr;</a>
+      <a href="seo-starter.html" class="pill">SEO Starter &rarr;</a>
+      <a href="website-care-plan.html" class="pill">Website Care Plan &rarr;</a>
   </div>
 </div>
 
-<!-- FOOTER -->
+<section class="section" id="faq-reveal">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="dot"></span>FAQ</div>
+    <h2>Asked <em>&amp; answered.</em></h2>
+  </div>
+  <div class="faq-list reveal d1">
+    <details class="faq-item" open>
+      <summary>What&rsquo;s the minimum ad spend?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+      <div class="a">There&rsquo;s no fixed minimum. We&rsquo;ll tell you honestly if your budget is enough to see results.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Which platforms do you run ads on?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+      <div class="a">Meta and Google, mainly. We recommend the right mix for your audience.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How is this priced?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+      <div class="a">As a share of ad spend or a flat monthly fee, whichever is simpler for your budget. We confirm this on the first call.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How soon will I see results?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+      <div class="a">Most accounts start showing clear signal within the first 30 days.</div>
+    </details>
+  </div>
+</section>
+
+<!-- FINAL CTA + FOOTER -->
+<!-- FINAL CTA + FOOTER -->
 <section class="section final" id="final-reveal">
-  <div class="footer-grid reveal" style="text-align:left;margin-top:0;padding-top:0;border-top:none;">
+  <div class="eyebrow reveal" style="justify-content:center;"><span class="dot"></span>Let&rsquo;s begin</div>
+  <h2 class="reveal d1">Let&rsquo;s work<br><em>together.</em></h2>
+  <a href="mailto:support@pixxelnest.com" class="email-btn reveal d2" data-magnetic>
+    support@pixxelnest.com
+    <svg width="18" height="18" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+  </a>
+
+  <div class="footer-grid" style="text-align:left;">
     <div>
       <div class="mark" style="font-weight:600;">PixxelNesst</div>
       <p class="brand-blurb">Brands and websites, built with care. India. Working worldwide.</p>
     </div>
     <div>
       <div class="col-label">Studio</div>
-      <a href="index.html#services-reveal">Services</a><a href="index.html#work-reveal">Testimonials</a><a href="index.html#process-reveal">Process</a><a href="index.html#pricing-reveal">Pricing</a>
+      <a href="#included-reveal">Included</a><a href="#process-reveal">Process</a><a href="#pricing-reveal">Pricing</a><a href="#faq-reveal">FAQ</a>
     </div>
     <div>
       <div class="col-label">Contact</div>
@@ -908,75 +940,6 @@
 
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
-    update();
-  })();
-</script>
-
-<script>
-  (function () {
-    var form = document.getElementById('bookForm');
-    var status = document.getElementById('formStatus');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      var data = Object.fromEntries(new FormData(form).entries());
-      var payload = {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        company: data.company,
-        projectTypes: data.service && data.service !== 'Not sure yet' ? [data.service] : ['Not sure yet'],
-        budget: data.budget,
-        brief: data.message
-      };
-      status.className = 'form-status show';
-      status.textContent = 'Sending...';
-      fetch('/api/book', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).then(function (res) {
-        if (!res.ok) throw new Error('bad response');
-        status.className = 'form-status show ok';
-        status.textContent = 'Thanks, ' + (data.name || 'there') + '. We got it, and we will reply within one business day.';
-        form.reset();
-      }).catch(function () {
-        status.className = 'form-status show err';
-        status.textContent = 'Could not send that automatically. Please email us directly at support@pixxelnest.com and we will get right back to you.';
-      });
-    });
-  })();
-</script>
-
-<script>
-  (function () {
-    var PRICE_MAP = {
-      'Landing Pages': '&#8377;45,000 &ndash; &#8377;90,000',
-      'Brand-in-a-Week': '&#8377;60,000 &ndash; &#8377;1,50,000',
-      'Monthly Social Pack': '&#8377;25,000 &ndash; &#8377;45,000 /month',
-      'Ads Management': '&#8377;30,000 &ndash; &#8377;80,000 /month',
-      'SEO Starter': '&#8377;25,000 &ndash; &#8377;80,000',
-      'Website Care Plan': '&#8377;15,000 &ndash; &#8377;30,000 /month'
-    };
-    var serviceSelect = document.getElementById('f-service');
-    var box = document.getElementById('priceEstimate');
-    var rangeEl = document.getElementById('peRange');
-    if (!serviceSelect || !box || !rangeEl) return;
-
-    function update() {
-      var range = PRICE_MAP[serviceSelect.value];
-      if (range) {
-        rangeEl.innerHTML = range;
-        box.classList.add('show');
-      } else {
-        box.classList.remove('show');
-      }
-    }
-    serviceSelect.addEventListener('change', update);
     update();
   })();
 </script>
