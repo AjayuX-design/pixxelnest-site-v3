@@ -126,7 +126,7 @@
     transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
   }
   nav.top a.cta:hover { border-color: var(--coral); color: var(--coral); }
-  nav.top { padding: 0 clamp(28px, 4vw, 48px); }
+  nav.top { padding: clamp(28px, 4vw, 48px) clamp(28px, 4vw, 48px) 0; }
   .nav-links { display: flex; gap: 28px; align-items: center; }
   .nav-links a { color: var(--paper-faint); text-decoration: none; transition: color 0.3s var(--ease-out); }
   .nav-links a:hover { color: var(--coral); }
