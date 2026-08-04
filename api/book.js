@@ -1,4 +1,4 @@
-const NOTIFY_TO = 'support@pixxelnest.com';
+const NOTIFY_TO = 'support@pixxelnesst.com';
 const FROM = 'PixxelNest Booking Form <booking@pixxelnesst.com>';
 
 function escapeHtml(s) {
