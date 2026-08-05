@@ -195,9 +195,12 @@
   }
 
   .foot {
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+    display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;
     gap: clamp(20px, 3vw, 40px); padding-top: clamp(28px, 4vw, 44px);
     z-index: 2; position: relative;
+  }
+  @media (min-width: 861px) {
+    .foot { gap: clamp(40px, 8vw, 160px); }
   }
   .foot .lede { font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.15vw, 17px); line-height: 1.6; color: var(--paper-dim); max-width: 44ch; }
   .foot .cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
