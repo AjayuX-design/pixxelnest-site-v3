@@ -680,7 +680,7 @@
     padding: 28px clamp(28px, 4vw, 48px) clamp(56px, 7vw, 96px);
   }
   .trust-row {
-    display: grid; grid-template-columns: repeat(4, 1fr);
+    display: grid; grid-template-columns: repeat(3, 1fr);
     border-bottom: 1px solid var(--ink-softer);
   }
   .trust-cell {
@@ -694,9 +694,9 @@
   }
   .trust-cell .l { font-size: 12px; color: var(--paper-faint); margin-top: 8px; letter-spacing: 0.02em; }
   @media (max-width: 720px) {
-    .trust-row { grid-template-columns: repeat(2, 1fr); }
-    .trust-cell:nth-child(3) { border-left: none; }
-    .trust-cell:nth-child(1), .trust-cell:nth-child(2) { border-bottom: 1px solid var(--ink-softer); }
+    .trust-row { grid-template-columns: repeat(3, 1fr); }
+    .trust-cell { padding: 18px 10px; }
+    .trust-cell .l { font-size: 11px; }
   }
 </style>
 
@@ -705,7 +705,6 @@
     <div class="trust-cell"><div class="n">120+</div><div class="l">Brands shipped</div></div>
     <div class="trust-cell"><div class="n">7 days</div><div class="l">Avg. brand sprint</div></div>
     <div class="trust-cell"><div class="n">98%</div><div class="l">Clients who stay</div></div>
-    <div class="trust-cell"><div class="n">2024</div><div class="l">Studio founded</div></div>
   </div>
 </div>
 
