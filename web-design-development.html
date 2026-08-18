@@ -30,7 +30,71 @@
 }
 </style>
 <meta charset="UTF-8" />
-<title>PixxelNesst: Website Care Plan Service</title>
+<title>Web Design &amp; Development for Startups &amp; Brands | PixxelNesst</title>
+<meta name="description" content="Custom landing pages, business websites, SaaS marketing sites and e-commerce storefronts for growing brands. Landing Page Sprints from ₹45,000, delivered in 7 working days.">
+<link rel="canonical" href="https://www.pixxelnesst.com/web-design-development.html">
+<meta property="og:title" content="Web Design &amp; Development for Startups &amp; Brands | PixxelNesst">
+<meta property="og:description" content="Custom landing pages, business websites, SaaS marketing sites and e-commerce storefronts. Landing Page Sprints from ₹45,000.">
+<meta property="og:url" content="https://www.pixxelnesst.com/web-design-development.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.pixxelnesst.com/assets/landing-pages.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Web Design & Development",
+  "name": "Web Design & Development",
+  "provider": { "@type": "Organization", "name": "PixxelNesst", "url": "https://www.pixxelnesst.com/" },
+  "description": "Custom web design and development for landing pages, business websites, SaaS marketing sites, e-commerce storefronts, and product interfaces. Landing Page Sprints start from ₹45,000 and are delivered in 7 working days once required inputs are received.",
+  "url": "https://www.pixxelnesst.com/web-design-development.html",
+  "offers": {
+    "@type": "Offer",
+    "name": "Landing Page Sprint",
+    "priceCurrency": "INR",
+    "price": "45000",
+    "url": "https://www.pixxelnesst.com/web-design-development.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between a landing page and a website?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A landing page is a focused page built around one offer and one primary action, such as booking a call, buying a product, joining a waitlist, or starting a trial. A website is a broader multi-page experience that helps people understand your brand, services, product, or catalog. We build both." }
+    },
+    {
+      "@type": "Question",
+      "name": "What can you deliver in 7 working days?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The 7-day Landing Page Sprint includes one focused conversion page, strategy, copywriting, custom design, responsive development, one standard conversion connection, basic tracking, QA, launch, handover, and one consolidated revision round. The timeline begins once we receive the required brief, assets, access, and project confirmation." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you build SaaS and e-commerce websites?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build SaaS marketing websites for product positioning, feature explanation, use cases, pricing, demo bookings, trials, sign-ups, and waitlists. We also build e-commerce storefronts with product and collection pages, cart and checkout experiences, agreed payment, shipping, analytics, and store integrations. Scope and timelines depend on the platform, catalog, content, and technical requirements." }
+    },
+    {
+      "@type": "Question",
+      "name": "What affects the cost of a website?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Scope depends on page count, content, platform, design complexity, CMS or e-commerce requirements, integrations, authentication, product features, testing requirements, and timeline. We define these before sending a proposal." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle copy, design, and development?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can own the strategy, conversion copy, design, and build. For larger projects, the exact copywriting and content scope is agreed before work begins." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after launch?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You own the finished website and relevant project assets. Website Care is available for maintenance, security, updates, and small edits. New pages, campaign variants, growth experiments, major content changes, and conversion optimisation are scoped separately." }
+    }
+  ]
+}
+</script>
 <style>
   @view-transition { navigation: auto; }
   :root {
@@ -45,6 +109,9 @@
     --brass: #B88A54;
     --brass-dim: rgba(184, 138, 84, 0.4);
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+    --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+    --space-9: 80px; --space-10: 96px;
   }
 
   * { box-sizing: border-box; }
@@ -122,11 +189,11 @@
   }
   nav.top a.cta {
     color: var(--paper); text-decoration: none;
-    border-bottom: 1px solid var(--brass-dim); padding-bottom: 2px;
+    border-bottom: 1px solid var(--brass-dim); padding-bottom: var(--space-1);
     transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
   }
   nav.top a.cta:hover { border-color: var(--coral); color: var(--coral); }
-  nav.top { padding: clamp(28px, 4vw, 48px) clamp(28px, 4vw, 48px) 0; }
+  nav.top { padding: clamp(28px, 4vw, 48px) clamp(28px, 4vw, 48px) 0; max-width: 1320px; margin: 0 auto; }
   .nav-links { display: flex; gap: 28px; align-items: center; }
   .nav-links a { color: var(--paper-faint); text-decoration: none; transition: color 0.3s var(--ease-out); }
   .nav-links a:hover { color: var(--coral); }
@@ -145,7 +212,7 @@
   .mobile-nav.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   .mobile-nav a {
     font-family: 'Fraunces Display', serif; font-weight: 600; font-size: clamp(32px, 9vw, 48px);
-    color: var(--paper); text-decoration: none; padding: 14px 0;
+    color: var(--paper); text-decoration: none; padding: var(--space-4) 0;
     border-bottom: 1px solid var(--ink-softer);
   }
   @media (max-width: 820px) {
@@ -203,8 +270,8 @@
   .foot .cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
 
   .btn {
-    position: relative; display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 26px; border-radius: 999px;
+    position: relative; display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-4) var(--space-5); border-radius: 999px;
     font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px;
     text-decoration: none; overflow: hidden;
     transition: transform 0.4s var(--ease-out), box-shadow 0.3s var(--ease-out);
@@ -269,20 +336,21 @@
   .svc-hero h1 {
     font-family: 'Fraunces Display', serif; font-weight: 600;
     font-size: clamp(38px, 5.2vw, 68px); line-height: 1.04; letter-spacing: -0.025em;
-    margin: 18px 0 22px; text-wrap: balance;
+    margin: 0 0 var(--space-4); text-wrap: balance;
   }
   .svc-hero h1 em {
     font-style: italic; font-weight: 500;
     background: linear-gradient(100deg, var(--coral) 30%, var(--brass) 90%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .svc-hero p.lede { font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.15vw, 17px); line-height: 1.6; color: var(--paper-dim); max-width: 46ch; margin: 0 0 32px; }
+  .svc-hero p.lede { font-family: 'Inter', sans-serif; font-size: clamp(15px, 1.15vw, 17px); line-height: 1.6; color: var(--paper-dim); max-width: 580px; margin: 0 0 var(--space-6); }
   .svc-hero .cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
   .svc-hero .proof-line { font-size: 13px; color: var(--paper-faint); }
-  .svc-hero .proof-line strong { color: var(--coral); font-weight: 600; }
+  .proof-line strong { color: var(--coral); font-weight: 600; }
+  .svc-hero .hero-note { display: inline-block; font-size: 12px; color: var(--paper-faint); padding: var(--space-2) var(--space-4); border: 1px solid var(--ink-softer); border-radius: 999px; margin: var(--space-4) 0 var(--space-5); }
   .svc-hero-media { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 3; border: 1px solid var(--ink-softer); }
   .svc-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .back-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--paper-faint); text-decoration: none; margin-bottom: 18px; transition: color 0.3s var(--ease-out); }
+  .back-link { display: inline-flex; align-items: center; gap: var(--space-2); font-family: 'Inter', sans-serif; font-size: 12px; color: var(--paper-faint); text-decoration: none; margin-bottom: var(--space-4); transition: color 0.3s var(--ease-out); }
   .back-link:hover { color: var(--coral); }
   @media (max-width: 900px) { .svc-hero-grid { grid-template-columns: 1fr; } .svc-hero-media { order: -1; } }
 
@@ -306,14 +374,14 @@
 
   .more-services { max-width: 1320px; margin: 0 auto; padding: 0 clamp(28px, 4vw, 48px) clamp(56px, 7vw, 96px); }
   .more-services .label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper-faint); margin-bottom: 16px; }
-  .more-services .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  .more-services .pill {
+  .pill-row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .pill {
     display: inline-flex; align-items: center; gap: 8px;
     font-family: 'Inter', sans-serif; font-size: 13px; color: var(--paper-dim);
-    text-decoration: none; padding: 10px 18px; border-radius: 999px;
+    text-decoration: none; padding: var(--space-2) var(--space-4); border-radius: 999px;
     border: 1px solid var(--ink-softer); transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
   }
-  .more-services .pill:hover { border-color: var(--coral); color: var(--coral); transform: translateY(-2px); }
+  a.pill:hover { border-color: var(--coral); color: var(--coral); transform: translateY(-2px); }
 </style>
 <canvas id="field" aria-hidden="true"></canvas>
 <div class="glow" aria-hidden="true"></div>
@@ -327,10 +395,11 @@
   <nav class="top reveal" id="r0">
     <a href="index.html" class="mark" style="display:inline-flex;align-items:center;gap:8px;"><svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true" style="flex:none"><g transform="translate(50,50) rotate(315) translate(0,-38) rotate(-3)"><rect x="-5" y="-5" width="10" height="10" rx="2.5" fill="#B88A54" opacity="0.22" style="filter:blur(1.1px)"/></g><g transform="translate(50,50) rotate(270) translate(0,-35) rotate(6)"><rect x="-6" y="-6" width="12" height="12" rx="3" fill="#BE8E57" opacity="0.33" style="filter:blur(0.8px)"/></g><g transform="translate(50,50) rotate(225) translate(0,-37) rotate(-5)"><rect x="-6.5" y="-6.5" width="13" height="13" rx="3" fill="#C3915A" opacity="0.44" style="filter:blur(0.4px) drop-shadow(0 1px 1px rgba(0,0,0,0.12))"/></g><g transform="translate(50,50) rotate(180) translate(0,-34) rotate(7)"><rect x="-7.5" y="-7.5" width="15" height="15" rx="3.5" fill="#C9955D" opacity="0.55" style="filter:drop-shadow(0 1.5px 1.5px rgba(0,0,0,0.16))"/></g><g transform="translate(50,50) rotate(135) translate(0,-38) rotate(-4)"><rect x="-8.5" y="-8.5" width="17" height="17" rx="4" fill="#CF9960" opacity="0.66" style="filter:drop-shadow(0 2px 2px rgba(0,0,0,0.2))"/></g><g transform="translate(50,50) rotate(90) translate(0,-35) rotate(5)"><rect x="-9.5" y="-9.5" width="19" height="19" rx="4.3" fill="#D59D62" opacity="0.77" style="filter:drop-shadow(0 2.5px 2.5px rgba(0,0,0,0.22))"/></g><g transform="translate(50,50) rotate(45) translate(0,-37) rotate(-6)"><rect x="-10" y="-10" width="20" height="20" rx="4.5" fill="#DAA065" opacity="0.88" style="filter:drop-shadow(0 3px 3px rgba(0,0,0,0.26))"/></g><g transform="translate(50,50) rotate(0) translate(0,-34) rotate(4)"><rect x="-11" y="-11" width="22" height="22" rx="5" fill="#E0A468" style="filter:drop-shadow(0 4px 5px rgba(0,0,0,0.32))"/></g></svg>PixxelNesst</a>
     <div class="nav-links">
-      <a href="#included-reveal">Included</a>
-      <a href="#process-reveal">Process</a>
-      <a href="#pricing-reveal">Pricing</a>
-      <a href="#faq-reveal">FAQ</a>
+      <a href="#what-we-build">What we build</a>
+      <a href="#choose-your-path">Choose your path</a>
+      <a href="#process">Process</a>
+      <a href="#scope">Scope</a>
+      <a href="#faq">FAQ</a>
     </div>
     <a href="book.html" class="cta" data-magnetic>Book a call &rarr;</a>
     <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
@@ -339,33 +408,64 @@
   </nav>
 
   <nav class="mobile-nav" id="mobileNav">
-    <a href="#included-reveal">Included</a>
-    <a href="#process-reveal">Process</a>
-    <a href="#pricing-reveal">Pricing</a>
-    <a href="#faq-reveal">FAQ</a>
+    <a href="#what-we-build">What we build</a>
+    <a href="#choose-your-path">Choose your path</a>
+    <a href="#process">Process</a>
+    <a href="#scope">Scope</a>
+    <a href="#faq">FAQ</a>
   </nav>
 
-<section class="svc-hero" id="hero-reveal">
+<section class="svc-hero" id="hero">
   <div class="svc-hero-grid">
     <div class="reveal d1">
       <a href="index.html#services-reveal" class="back-link">&larr; All services</a>
-      <div class="eyebrow"><span class="dot"></span>Services / Website Care Plan</div>
-      <h1>Build it once, <em>we keep it healthy.</em></h1>
-      <p class="lede">Hosting, updates, backups, and small edits. Your site stays fast, secure, and up to date, so you don&rsquo;t have to think about it.</p>
+      <div class="eyebrow"><span class="dot"></span>Services / Web Design &amp; Development</div>
+      <h1>Websites built for <em>the next move.</em></h1>
+      <p class="lede">From focused landing pages to SaaS marketing sites and e-commerce storefronts, we design and build digital experiences that make the next step clear.</p>
+      <p class="proof-line"><strong>Landing Page Sprint from &#8377;45,000</strong> &middot; Live in 7 working days</p>
+      <p class="hero-note">Larger websites, e-commerce stores, SaaS experiences, and web apps are custom scoped.</p>
       <div class="cta-row">
-        <a href="book.html" class="btn btn-primary" data-magnetic>Book a call
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-        </a>
-        <a href="#pricing-reveal" class="btn btn-outline" data-magnetic>See pricing</a>
+        <a href="book.html" class="btn btn-primary" data-magnetic>Talk about your web project &rarr;</a>
+        <a href="#what-we-build" class="btn btn-outline" data-magnetic>Explore what we build &rarr;</a>
       </div>
-      <p class="proof-line"><strong>99.98%</strong> avg. uptime</p>
     </div>
     <div class="svc-hero-media reveal d2">
-      <img src="assets/website-care-plan.jpg" alt="Website Care Plan">
+      <img src="assets/landing-pages.jpg" alt="Web design and development work by PixxelNesst spanning landing pages, websites, and digital products" width="1000" height="684" loading="eager">
     </div>
   </div>
 </section>
 <style>
+  .hero-note { font-size: 13px; color: var(--paper-faint); max-width: 46ch; margin: 8px 0 0; line-height: 1.55; }
+  .cta-prompt { font-size: 14px; color: var(--paper-dim); margin: var(--space-4) 0 var(--space-5); }
+  .hero-seo { font-size: 13px; color: var(--paper-faint); max-width: 60ch; margin: 24px 0 0; line-height: 1.6; padding-top: 16px; border-top: 1px solid var(--ink-softer); }
+
+  .section-lede { font-size: 15px; color: var(--paper-dim); max-width: 62ch; line-height: 1.6; margin: var(--space-4) 0 0; }
+  .section-note { font-size: 13px; color: var(--paper-faint); max-width: 62ch; line-height: 1.6; margin-top: 20px; }
+
+  .check-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; }
+  .check-list li { font-size: 14px; color: var(--paper-dim); line-height: 1.55; padding-left: var(--space-4); position: relative; }
+  .check-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: var(--coral); }
+  @media (max-width: 720px) { .check-list { grid-template-columns: 1fr; } }
+
+  .launch-block { margin-bottom: 24px; }
+  .launch-block:last-child { margin-bottom: 0; }
+  .includes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6) var(--space-6); margin-top: var(--space-6); }
+  .includes-grid .launch-block { margin-bottom: 0; }
+  @media (max-width: 720px) { .includes-grid { grid-template-columns: 1fr; } }
+  .launch-block strong { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 16px; display: block; margin-bottom: var(--space-3); }
+  .launch-block p { font-size: 14px; color: var(--paper-dim); line-height: 1.6; margin: 0; max-width: 62ch; }
+
+  .proof-card { background: var(--ink-soft); border: 1px solid var(--ink-softer); border-radius: 16px; padding: clamp(24px, 2.6vw, 32px); max-width: 620px; }
+  .proof-card .tag { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brass); margin-bottom: 16px; }
+  .proof-card blockquote { font-family: 'Fraunces Display', serif; font-style: italic; font-weight: 500; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.4; margin: 0 0 20px; color: var(--paper); }
+  .proof-card footer { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding-top: 16px; border-top: 1px solid var(--ink-softer); }
+  .proof-card .who-row { display: flex; align-items: center; gap: 12px; }
+  .proof-card .avatar { width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--coral) 0%, var(--brass) 100%); color: var(--ink); font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+  .proof-card .who { font-size: 14px; font-weight: 600; }
+  .proof-card .role { font-size: 12px; color: var(--paper-faint); margin-top: 4px; }
+  .proof-card .metric { font-family: 'Fraunces Display', serif; font-size: 20px; font-weight: 600; color: var(--coral); }
+  .proof-card .metric-l { font-size: 10px; color: var(--paper-faint); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+
   .progress-rail {
     position: fixed; right: 28px; top: 50%; transform: translateY(-50%);
     z-index: 40; display: flex; flex-direction: column; align-items: center; gap: 0;
@@ -401,12 +501,14 @@
   <div class="track">
     <div class="fill" id="railFill"></div>
     <div class="dots" id="railDots">
-      <button class="dot" data-target="hero-reveal"><span class="rail-label">Home</span></button>
-      <button class="dot" data-target="included-reveal"><span class="rail-label">Included</span></button>
-      <button class="dot" data-target="process-reveal"><span class="rail-label">Process</span></button>
-      <button class="dot" data-target="pricing-reveal"><span class="rail-label">Pricing</span></button>
-      <button class="dot" data-target="faq-reveal"><span class="rail-label">FAQ</span></button>
-      <button class="dot" data-target="final-reveal"><span class="rail-label">Contact</span></button>
+      <button class="dot" data-target="hero"><span class="rail-label">Home</span></button>
+      <button class="dot" data-target="what-we-build"><span class="rail-label">Build</span></button>
+      <button class="dot" data-target="choose-your-path"><span class="rail-label">Path</span></button>
+      <button class="dot" data-target="process"><span class="rail-label">Process</span></button>
+      <button class="dot" data-target="scope"><span class="rail-label">Scope</span></button>
+      <button class="dot" data-target="work"><span class="rail-label">Work</span></button>
+      <button class="dot" data-target="faq"><span class="rail-label">FAQ</span></button>
+      <button class="dot" data-target="contact"><span class="rail-label">Contact</span></button>
     </div>
   </div>
 </nav>
@@ -513,13 +615,13 @@
   })();
 </script>
 <style>
-  .section { padding: clamp(72px, 10vw, 140px) clamp(28px, 4vw, 48px); position: relative; z-index: 2; max-width: 1320px; margin: 0 auto; }
+  .section { padding: clamp(var(--space-8), 10vw, 140px) clamp(28px, 4vw, 48px); position: relative; z-index: 2; max-width: 1320px; margin: 0 auto; }
   .section-tight { padding-top: 0; }
   .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
+    display: flex; width: fit-content; align-items: center; gap: var(--space-2);
     font-family: 'Inter', sans-serif; font-size: 11px;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass);
-    margin-bottom: 20px;
+    margin-bottom: var(--space-3);
   }
   .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--coral); flex-shrink: 0; box-shadow: 0 0 8px 1px rgba(224,164,104,0.6); }
   .section-head h2 {
@@ -540,6 +642,7 @@
 
   /* SERVICES */
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .services-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .service-card {
     background: var(--ink-soft); border: 1px solid var(--ink-softer); border-radius: 16px;
     position: relative; overflow: hidden; display: flex; flex-direction: column;
@@ -552,10 +655,11 @@
     transition: transform 0.6s var(--ease-out);
   }
   .service-card:hover .service-media img { transform: scale(1.05); }
-  .service-body { padding: clamp(20px, 2.2vw, 28px); }
-  .service-card h3 { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 22px; letter-spacing: -0.01em; margin: 0 0 6px; }
+  .service-body { padding: clamp(20px, 2.2vw, 28px); display: flex; flex-direction: column; flex: 1; }
+  .service-card h3 { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 22px; letter-spacing: -0.01em; margin: 0 0 var(--space-3); }
   .service-card .tagline { color: var(--coral); font-size: 13px; margin-bottom: 14px; }
-  .service-card p { font-size: 14px; line-height: 1.55; color: var(--paper-dim); margin: 0 0 20px; }
+  .service-card p { font-size: 14px; line-height: 1.55; color: var(--paper-dim); margin: 0 0 var(--space-5); }
+  .service-card .proof-line { margin-bottom: 0; margin-top: auto; padding-top: var(--space-4); }
   .service-card a { font-size: 13px; font-weight: 500; text-decoration: underline; text-decoration-color: var(--brass-dim); text-underline-offset: 4px; }
   .service-card a:hover { text-decoration-color: var(--coral); color: var(--coral); }
 
@@ -587,16 +691,17 @@
   .stat-cell .l { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--paper-faint); margin-top: 8px; }
 
   /* PROCESS */
-  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink-softer); }
+  .process-subhead { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: clamp(20px, 2.4vw, 28px); letter-spacing: -0.01em; margin: 0 0 var(--space-6); }
+  .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--ink-softer); }
   .process-cell { padding: 32px 20px 0 0; border-right: 1px solid var(--ink-softer); }
   .process-cell:last-child { border-right: none; }
   .process-cell:not(:first-child) { padding-left: 24px; }
   .process-icon {
     width: 40px; height: 40px; border-radius: 10px; background: var(--ink-soft);
     border: 1px solid var(--ink-softer); color: var(--coral);
-    display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4);
   }
-  .process-cell h4 { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 24px; margin: 0 0 10px; letter-spacing: -0.015em; }
+  .process-cell h4 { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 24px; margin: 0 0 var(--space-3); letter-spacing: -0.015em; }
   .process-cell p { font-size: 14px; color: var(--paper-dim); line-height: 1.55; margin: 0; }
 
   /* TESTIMONIALS (case + quote merged) */
@@ -643,17 +748,28 @@
   .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .price-card { background: var(--ink-soft); border: 1px solid var(--ink-softer); border-radius: 16px; padding: clamp(24px, 2.6vw, 36px); display: flex; flex-direction: column; position: relative; }
   .price-card.highlight { background: var(--ink); border-color: var(--brass); }
-  .price-card .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--coral); color: var(--ink); font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; white-space: nowrap; }
-  .price-card .name { font-family: 'Fraunces Display', serif; font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+  .price-card .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--coral); color: var(--ink); font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: var(--space-1) var(--space-3); border-radius: 999px; white-space: nowrap; }
+  .price-card .name { font-family: 'Fraunces Display', serif; font-size: 17px; font-weight: 600; margin-bottom: var(--space-3); }
   .price-card .desc { font-size: 12px; color: var(--paper-faint); margin-bottom: 24px; line-height: 1.5; }
   .price-card .amount { font-family: 'Fraunces Display', serif; font-size: clamp(26px, 2.4vw, 36px); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 24px; }
   .price-card .amount .unit { font-size: 13px; color: var(--paper-faint); font-family: 'Inter', sans-serif; font-weight: 400; }
   .price-card ul { list-style: none; padding: 0; margin: 0 0 28px; flex: 1; border-top: 1px solid var(--ink-softer); padding-top: 20px; }
-  .price-card li { font-size: 13px; color: var(--paper-dim); padding: 8px 0; display: flex; gap: 10px; }
-  .price-card li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--coral); margin-top: 7px; flex-shrink: 0; }
+  .price-card li { font-size: 13px; color: var(--paper-dim); padding: var(--space-2) 0; display: flex; gap: var(--space-2); }
+  .price-card li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--coral); margin-top: 8px; flex-shrink: 0; }
 
   /* FAQ */
   .faq-list { border-top: 1px solid var(--ink-softer); max-width: 760px; }
+  .accordion { border-top: 1px solid var(--ink-softer); border-bottom: 1px solid var(--ink-softer); }
+  .accordion h3 { margin: 0; }
+  .accordion-trigger { background: transparent; border: none; cursor: pointer; width: 100%; text-align: left; padding: var(--space-6) 0; display: flex; justify-content: space-between; align-items: center; gap: var(--space-5); font-family: 'Fraunces Display', serif; font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; color: var(--paper); }
+  .accordion-trigger .plus { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--ink-softer); display: flex; align-items: center; justify-content: center; transition: transform 0.3s var(--ease-out), background 0.3s var(--ease-out); }
+  .accordion-trigger[aria-expanded="true"] .plus { background: var(--coral); color: var(--ink); border-color: var(--coral); transform: rotate(45deg); }
+  .accordion-panel { padding-bottom: var(--space-6); font-size: 15px; color: var(--paper-dim); line-height: 1.6; max-width: 62ch; }
+  .accordion-panel[hidden] { display: none; }
+  .accordion-panel h4 { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: 15px; color: var(--paper); margin: var(--space-5) 0 var(--space-2); }
+  .accordion-panel h4:first-child { margin-top: 0; }
+  .accordion-panel ul.check-list { margin-top: var(--space-2); }
+  .accordion-panel > p { margin: 0 0 var(--space-2); }
   .faq-item { border-bottom: 1px solid var(--ink-softer); }
   .faq-item summary { list-style: none; cursor: pointer; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: 'Fraunces Display', serif; font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; }
   .faq-item summary::-webkit-details-marker { display: none; }
@@ -662,26 +778,26 @@
   .faq-item .a { font-size: 15px; color: var(--paper-dim); line-height: 1.6; padding-bottom: 24px; max-width: 60ch; }
 
   /* FINAL CTA */
-  .final { text-align: center; padding-top: clamp(90px, 12vw, 160px); }
-  .final h2 { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: clamp(48px, 9vw, 130px); line-height: 0.92; letter-spacing: -0.03em; margin: 24px 0 40px; }
+  .final { text-align: center; padding-top: clamp(var(--space-10), 12vw, 160px); }
+  .final h2 { font-family: 'Fraunces Display', serif; font-weight: 600; font-size: clamp(48px, 9vw, 130px); line-height: 0.92; letter-spacing: -0.03em; margin: var(--space-3) 0 40px; }
   .final h2 em { font-style: italic; background: linear-gradient(100deg, var(--coral) 30%, var(--brass) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .email-btn { display: inline-flex; align-items: center; gap: 14px; font-family: 'Fraunces Display', serif; font-size: clamp(18px, 2vw, 26px); font-weight: 600; padding: 16px 32px; border-radius: 999px; border: 1px solid var(--ink-softer); transition: all 0.4s var(--ease-out); }
+  .email-btn { display: inline-flex; align-items: center; gap: var(--space-4); font-family: 'Fraunces Display', serif; font-size: clamp(18px, 2vw, 26px); font-weight: 600; padding: 16px 32px; border-radius: 999px; border: 1px solid var(--ink-softer); transition: all 0.4s var(--ease-out); }
   .email-btn:hover { background: var(--coral); border-color: var(--coral); color: var(--ink); }
 
   .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; margin-top: 100px; padding-top: 32px; border-top: 1px solid var(--ink-softer); }
   .footer-grid .brand-blurb { font-size: 13px; color: var(--paper-faint); max-width: 32ch; line-height: 1.5; margin-top: 12px; }
-  .footer-grid .col-label { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper-faint); margin-bottom: 14px; }
-  .footer-grid a, .footer-grid .line { display: block; font-size: 14px; padding: 5px 0; color: var(--paper-dim); text-decoration: none; }
+  .footer-grid .col-label { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper-faint); margin-bottom: var(--space-4); }
+  .footer-grid a, .footer-grid .line { display: block; font-size: 14px; padding: var(--space-1) 0; color: var(--paper-dim); text-decoration: none; }
   .footer-grid a:hover { color: var(--coral); }
   .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--ink-softer); font-size: 12px; color: var(--paper-faint); }
 
   @media (max-width: 900px) {
-    .services-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .services-grid, .services-grid-2, .pricing-grid { grid-template-columns: 1fr; }
     .proof-grid { grid-template-columns: 1fr; }
     .testi-counter { display: none; }
     .testi-page.is-active { grid-template-columns: 1fr; }
     .process-grid { grid-template-columns: 1fr 1fr; }
-    .process-cell:nth-child(3), .process-cell:nth-child(4) { border-top: 1px solid var(--ink-softer); padding-top: 32px; margin-top: 16px; }
+    .process-cell:nth-child(3), .process-cell:nth-child(4), .process-cell:nth-child(5) { border-top: 1px solid var(--ink-softer); padding-top: 32px; margin-top: 16px; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 560px) {
@@ -716,142 +832,307 @@
   }
 </style>
 
-<section class="section" id="included-reveal">
+<section class="section" id="what-we-build">
   <div class="section-head reveal">
-    <div class="eyebrow"><span class="dot"></span>What&rsquo;s included</div>
-    <h2>Everything you need. <em>Nothing extra.</em></h2>
+    <div class="eyebrow"><span class="dot"></span>What we build</div>
+    <h2>Built around the job your website <em>needs to do.</em></h2>
   </div>
-  <div class="feature-grid">
-    <div class="feature-card reveal d1">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7-3"/></svg></div>
-      <h4>Hosting &amp; monitoring.</h4>
-      <p>Your site watched around the clock, every day of the year.</p>
+  <div class="services-grid">
+    <div class="service-card reveal d1">
+      <div class="service-body">
+        <h3>Landing Page Sprint</h3>
+        <p>One focused page for one offer and one action.</p>
+        <div class="proof-line">From &#8377;45,000 &middot; 7 working days</div>
+      </div>
     </div>
-    <div class="feature-card reveal d2">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10a6 6 0 0 0-11.3-2A5 5 0 0 0 7 18h11a4 4 0 0 0 0-8z"/></svg></div>
-      <h4>Regular backups.</h4>
-      <p>Automatic backups, so nothing is ever truly lost.</p>
+    <div class="service-card reveal d2">
+      <div class="service-body">
+        <h3>Business Websites</h3>
+        <p>A clear, credible digital home for your business.</p>
+        <div class="proof-line">Custom scope</div>
+      </div>
     </div>
-    <div class="feature-card reveal d3">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3L4 7v8c0 6 4.5 10 10 11 5.5-1 10-5 10-11V7L14 3z"/><path d="M9 14l3 3 6-6"/></svg></div>
-      <h4>Security &amp; updates.</h4>
-      <p>Plugins, patches, and fixes, kept current.</p>
+    <div class="service-card reveal d3">
+      <div class="service-body">
+        <h3>SaaS Marketing Websites</h3>
+        <p>Product-led pages for demos, trials, and sign-ups.</p>
+        <div class="proof-line">Custom scope</div>
+      </div>
     </div>
-    <div class="feature-card reveal d4">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></div>
-      <h4>Small edits, handled.</h4>
-      <p>Text changes and small fixes, done for you.</p>
+    <div class="service-card reveal d4">
+      <div class="service-body">
+        <h3>E-commerce Stores</h3>
+        <p>Storefronts built for discovery, cart, and checkout.</p>
+        <div class="proof-line">Custom scope</div>
+      </div>
+    </div>
+    <div class="service-card reveal d4">
+      <div class="service-body">
+        <h3>Product Interfaces &amp; Web Apps</h3>
+        <p>Product UX, dashboards, portals, and workflows.</p>
+        <div class="proof-line">Custom scope</div>
+      </div>
     </div>
   </div>
 </section>
 
 <hr class="rule" style="max-width:1320px;margin:0 auto;">
 
-<section class="section" id="process-reveal">
+<section class="section" id="choose-your-path">
   <div class="section-head reveal">
-    <div class="eyebrow"><span class="dot"></span>Process</div>
-    <h2>How it <em>comes together.</em></h2>
+    <div class="eyebrow"><span class="dot"></span>Choose your path</div>
+    <h2>Start focused. <em>Scale when it makes sense.</em></h2>
+  </div>
+  <div class="services-grid-2">
+    <div class="service-card reveal d1">
+      <div class="service-body">
+        <h3>One offer. One action. One focused week.</h3>
+        <p>For launches, paid campaigns, waitlists, booking calls, and testing a focused offer.</p>
+        <p class="proof-line"><strong>From &#8377;45,000</strong> &middot; 7 working days</p>
+        <p style="font-size:13px;color:var(--paper-faint);margin:0 0 var(--space-5);">Strategy, copy, design, build, tracking, launch, and one revision.</p>
+        <a href="book.html" class="btn btn-primary" style="margin-top:auto;" data-magnetic>Start a Landing Page Sprint &rarr;</a>
+      </div>
+    </div>
+    <div class="service-card reveal d2">
+      <div class="service-body">
+        <h3>More than one page? We scope it properly.</h3>
+        <p>For business websites, SaaS marketing websites, e-commerce stores, and product interfaces.</p>
+        <p style="font-size:13px;color:var(--paper-faint);margin:0 0 var(--space-3);">Timeline and investment are based on pages, content, platform, features, integrations, and rollout needs.</p>
+        <p style="font-size:12px;color:var(--paper-faint);margin:0 0 var(--space-5);">We define the right structure before design or development begins.</p>
+        <a href="book.html" class="btn btn-outline" style="margin-top:auto;" data-magnetic>Talk about your web project &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" style="margin-top:var(--space-7);">
+    <h3>
+      <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-sprint-included">
+        What is included in a Landing Page Sprint?
+        <span class="plus" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span>
+      </button>
+    </h3>
+    <div id="acc-sprint-included" class="accordion-panel" hidden>
+      <h4>Strategy</h4>
+      <ul class="check-list" style="grid-template-columns:1fr;">
+        <li>Conversion brief</li>
+        <li>Offer, audience, and primary CTA</li>
+        <li>Page structure and conversion copy</li>
+      </ul>
+      <h4>Design</h4>
+      <ul class="check-list" style="grid-template-columns:1fr;">
+        <li>Custom desktop and mobile UI</li>
+        <li>One consolidated revision round</li>
+      </ul>
+      <h4>Build</h4>
+      <ul class="check-list" style="grid-template-columns:1fr;">
+        <li>Responsive development</li>
+        <li>One standard form, calendar, WhatsApp, or checkout-link connection</li>
+      </ul>
+      <h4>Launch</h4>
+      <ul class="check-list" style="grid-template-columns:1fr;">
+        <li>Basic SEO metadata</li>
+        <li>One primary conversion event</li>
+        <li>Desktop/mobile QA</li>
+        <li>Deployment and handover</li>
+      </ul>
+    </div>
+  </div>
+  <p class="section-note" style="margin-top:var(--space-5);">Built for one offer and one primary conversion action. Multi-page funnels, custom authentication, complex checkout flows, advanced animation, custom integrations, extensive content production, additional revision rounds, and major platform work are scoped separately.</p>
+</section>
+
+<hr class="rule" style="max-width:1320px;margin:0 auto;">
+
+<section class="section" id="process">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="dot"></span>How we work</div>
+    <h2>Clear process. <em>Right pace.</em></h2>
   </div>
   <div class="process-grid">
     <div class="process-cell reveal d1">
-      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h2l2 5-2 2a12 12 0 0 0 6 6l2-2 5 2v2a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg></div>
-      <h4>Onboard</h4>
-      <p>We take over hosting and set up monitoring.</p>
+      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h2l2 5-2 2a12 12 0 0 0 6 6l2-2 5 2v2a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg></div>
+      <h4>Discover</h4>
+      <p>Goals, audience, offer, requirements, and success metric.</p>
     </div>
     <div class="process-cell reveal d2">
-      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></div>
-      <h4>Monitor</h4>
-      <p>Uptime and performance, watched every day.</p>
+      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></div>
+      <h4>Scope</h4>
+      <p>Sitemap, platform, pages, features, timeline, and proposal.</p>
     </div>
     <div class="process-cell reveal d3">
-      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg></div>
-      <h4>Maintain</h4>
-      <p>Updates and backups, running on schedule.</p>
+      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg></div>
+      <h4>Design</h4>
+      <p>Structure, UX, copy direction, visual system, and responsive UI.</p>
     </div>
     <div class="process-cell reveal d4">
-      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
-      <h4>Support</h4>
-      <p>Small edits, handled as you need them.</p>
+      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <h4>Build</h4>
+      <p>Development, integrations, content, tracking, and SEO basics.</p>
+    </div>
+    <div class="process-cell reveal d4">
+      <div class="process-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+      <h4>Launch</h4>
+      <p>QA, conversion-path testing, deployment, handover, and next steps.</p>
     </div>
   </div>
+  <p class="section-note">Landing Page Sprint: 7 working days once the brief, assets, access, and confirmation are ready.<br>Custom Website Projects: timeline is confirmed after discovery and scope.</p>
+  <p class="section-note" style="margin-top:var(--space-4);"><strong style="color:var(--paper);">Every project includes:</strong> Strategy &middot; Custom design &middot; Responsive build &middot; QA &middot; SEO foundations &middot; Tracking readiness &middot; Launch and handover</p>
 </section>
 
-<section class="section" id="pricing-reveal">
-  <div class="section-head reveal" style="text-align:center;max-width:none;">
-    <div class="eyebrow" style="justify-content:center;"><span class="dot"></span>Pricing</div>
-    <h2>Straight rate, <em>no surprises.</em></h2>
+<hr class="rule" style="max-width:1320px;margin:0 auto;">
+
+<section class="section" id="scope">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="dot"></span>Scope and timing</div>
+    <h2>We price the work, <em>not a vague promise.</em></h2>
+    <p class="section-lede">A focused landing page can move quickly. Larger websites and product experiences need more planning, content, functionality, testing, and stakeholder alignment.</p>
   </div>
-  <div class="single-price">
-    <div class="price-card highlight reveal d1">
-      <div class="badge">Website Care Plan</div>
-      <div class="name">Website Care Plan</div>
-      <div class="desc">One flat monthly rate.</div>
-      <div class="amount">From &#8377;15,000 <span class="unit">/month</span></div>
-      <ul>
-        <li>Hosting &amp; monitoring</li>
-        <li>Backups &amp; security</li>
-        <li>Small edits included</li>
-        <li>Priority support</li>
+  <div class="pill-row reveal d1">
+    <span class="pill">Pages and content</span>
+    <span class="pill">CMS, e-commerce, and integrations</span>
+    <span class="pill">Product functionality and data</span>
+    <span class="pill">Timeline, approvals, and stakeholders</span>
+  </div>
+
+  <div class="accordion" style="margin-top:var(--space-6);">
+    <h3>
+      <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-scope-factors">
+        See what affects scope
+        <span class="plus" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span>
+      </button>
+    </h3>
+    <div id="acc-scope-factors" class="accordion-panel" hidden>
+      <ul class="check-list" style="grid-template-columns:1fr 1fr;">
+        <li>Number of pages and templates</li>
+        <li>Content, copywriting, and asset requirements</li>
+        <li>CMS, e-commerce, product catalog, checkout, or membership needs</li>
+        <li>Authentication, dashboards, data, APIs, and third-party integrations</li>
+        <li>Languages, regions, accessibility, and compliance requirements</li>
+        <li>Custom motion, 3D, photography, video, or illustration</li>
+        <li>Timeline, decision-makers, and feedback process</li>
       </ul>
-      <a href="book.html" class="btn btn-primary" style="justify-content:center;" data-magnetic>Start a project &rarr;</a>
     </div>
+  </div>
+
+  <div style="margin-top:var(--space-7);padding:var(--space-5);border:1px solid var(--ink-softer);border-radius:16px;max-width:640px;">
+    <p style="font-family:'Fraunces Display',serif;font-weight:600;font-size:16px;margin:0 0 var(--space-2);">Not sure what your project needs?</p>
+    <p style="font-size:14px;color:var(--paper-dim);line-height:1.6;margin:0 0 var(--space-4);">Tell us what you are building, who it is for, and what needs to happen next. We will recommend the right scope before you commit.</p>
+    <a href="book.html" class="btn btn-outline" data-magnetic>Talk about your web project &rarr;</a>
   </div>
 </section>
 
 <div class="more-services">
   <div class="label">Explore other services</div>
   <div class="pill-row">
-      <a href="web-design-development.html" class="pill">Web Design &amp; Development &rarr;</a>
       <a href="brand-in-a-week.html" class="pill">Brand-in-a-Week &rarr;</a>
       <a href="monthly-social-pack.html" class="pill">Monthly Social Pack &rarr;</a>
       <a href="ads-management.html" class="pill">Ads Management &rarr;</a>
       <a href="seo-starter.html" class="pill">SEO Starter &rarr;</a>
+      <a href="website-care-plan.html" class="pill">Website Care Plan &rarr;</a>
   </div>
 </div>
 
-<section class="section" id="faq-reveal">
+<section class="section" id="work">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="dot"></span>Selected work</div>
+    <h2>Built for the work <em>that comes next.</em></h2>
+  </div>
+  <p class="section-lede">Selected projects are being documented. In the meantime, tell us what you are building and we will show you the most relevant examples on a call.</p>
+  <a href="book.html" class="btn btn-outline reveal d1" style="margin-top:var(--space-5);" data-magnetic>Talk about your web project &rarr;</a>
+  <!--
+  FUTURE PROJECT CARD TEMPLATE — not rendered. Reuses the existing .work-card
+  component. Populate and uncomment once a real project is documented and
+  approved. Do not fill with placeholder/fake content.
+
+  <div class="work-card">
+    <div class="service-media"><img src="assets/PROJECT_IMAGE.jpg" alt="DESCRIPTIVE ALT TEXT" loading="lazy" width="W" height="H"></div>
+    <div class="tag">PROJECT TYPE &middot; CLIENT NAME OR INDUSTRY</div>
+    <blockquote>OBJECTIVE OR PROBLEM STATEMENT</blockquote>
+    <p>Services delivered: SERVICE 1, SERVICE 2, SERVICE 3</p>
+    <footer>
+      <div class="who-row"><div class="avatar">XX</div><div><div class="who">CLIENT NAME</div><div class="role">INDUSTRY / ROLE</div></div></div>
+      <div style="text-align:right"><div class="metric">VERIFIED RESULT (only if approved)</div><div class="metric-l">METRIC LABEL</div></div>
+    </footer>
+    <a href="CASE_STUDY_OR_LIVE_PROJECT_URL">View case study &rarr;</a>
+  </div>
+  -->
+</section>
+
+<section class="section" id="faq">
   <div class="section-head reveal">
     <div class="eyebrow"><span class="dot"></span>FAQ</div>
-    <h2>Asked <em>&amp; answered.</em></h2>
+    <h2>Frequently asked <em>questions.</em></h2>
   </div>
-  <div class="faq-list reveal d1">
-    <details class="faq-item" open>
-      <summary>What counts as a &ldquo;small edit&rdquo;?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-      <div class="a">Text changes, image swaps, small layout tweaks. Bigger changes are quoted separately.</div>
-    </details>
-    <details class="faq-item">
-      <summary>What if my site goes down?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-      <div class="a">We&rsquo;re monitoring it, so we usually catch it before you do.</div>
-    </details>
-    <details class="faq-item">
-      <summary>Can I bring my own hosting?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-      <div class="a">Yes. We can manage your existing hosting or move you to ours.</div>
-    </details>
-    <details class="faq-item">
-      <summary>Do I need this if I&rsquo;m not making changes often?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
-      <div class="a">Yes. Security and backups matter even if the site looks the same.</div>
-    </details>
+  <div class="proof-grid">
+    <div>
+      <div class="faq-list reveal d1">
+        <details class="faq-item" open>
+          <summary>What is the difference between a landing page and a website?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+          <div class="a">A landing page is a focused page built around one offer and one primary action, such as booking a call, buying a product, joining a waitlist, or starting a trial. A website is a broader multi-page experience that helps people understand your brand, services, product, or catalog. We build both.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What can you deliver in 7 working days?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+          <div class="a">The 7-day Landing Page Sprint includes one focused conversion page, strategy, copywriting, custom design, responsive development, one standard conversion connection, basic tracking, QA, launch, handover, and one consolidated revision round. The timeline begins once we receive the required brief, assets, access, and project confirmation.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you build SaaS and e-commerce websites?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+          <div class="a">Yes. We build SaaS marketing websites for product positioning, feature explanation, use cases, pricing, demo bookings, trials, sign-ups, and waitlists. We also build e-commerce storefronts with product and collection pages, cart and checkout experiences, agreed payment, shipping, analytics, and store integrations. Scope and timelines depend on the platform, catalog, content, and technical requirements.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What affects the cost of a website?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+          <div class="a">Scope depends on page count, content, platform, design complexity, CMS or e-commerce requirements, integrations, authentication, product features, testing requirements, and timeline. We define these before sending a proposal.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you handle copy, design, and development?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+          <div class="a">Yes. We can own the strategy, conversion copy, design, and build. For larger projects, the exact copywriting and content scope is agreed before work begins.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens after launch?<span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+          <div class="a">You own the finished website and relevant project assets. <a href="website-care-plan.html">Website Care</a> is available for maintenance, security, updates, and small edits. New pages, campaign variants, growth experiments, major content changes, and conversion optimisation are scoped separately.</div>
+        </details>
+      </div>
+      <div class="accordion" style="margin-top:var(--space-2);">
+        <h3>
+          <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-more-faq">
+            More questions about scope, ownership, and project requirements
+            <span class="plus" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span>
+          </button>
+        </h3>
+        <div id="acc-more-faq" class="accordion-panel" hidden>
+          <h4>Can you build a complete web application?</h4>
+          <p>Yes, where the project is a suitable fit. Product interfaces, dashboards, portals, authentication, subscriptions, data flows, APIs, and integrations are custom-scoped based on the product requirements. They are not part of the 7-day Landing Page Sprint.</p>
+          <h4>What do you need before starting?</h4>
+          <p>For a Landing Page Sprint, we need a clear offer, target audience, assets, proof, access, and timely approval. For custom projects, we begin with discovery to define requirements, content, stakeholders, technical needs, and project timeline.</p>
+        </div>
+      </div>
+    </div>
+    <div class="proof-card reveal d2">
+      <div class="tag">Not sure which build fits?</div>
+      <p style="font-size:14px;color:var(--paper-dim);line-height:1.6;margin:0 0 var(--space-5);">Tell us what you are launching or improving. We will help you choose between a Landing Page Sprint and a custom web project.</p>
+      <a href="book.html" class="btn btn-outline" style="justify-content:center;" data-magnetic>Talk about your web project &rarr;</a>
+    </div>
   </div>
 </section>
 
-<!-- FINAL CTA + FOOTER -->
-<!-- FINAL CTA + FOOTER -->
-<section class="section final" id="final-reveal">
-  <div class="eyebrow reveal" style="justify-content:center;"><span class="dot"></span>Let&rsquo;s begin</div>
-  <h2 class="reveal d1">Let&rsquo;s work<br><em>together.</em></h2>
-  <a href="mailto:support@pixxelnesst.com" class="email-btn reveal d2" data-magnetic>
-    support@pixxelnesst.com
-    <svg width="18" height="18" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-  </a>
+<section class="section final" id="contact">
+  <div class="eyebrow reveal" style="justify-content:center;"><span class="dot"></span>Let&rsquo;s build the right thing.</div>
+  <h2 class="reveal d1">One focused page or<br>a <em>complete digital experience.</em></h2>
+  <p class="reveal d1" style="text-align:center;font-size:14px;color:var(--paper-dim);margin:-24px auto 24px;max-width:52ch;">Tell us what you are building. We will recommend the right scope, platform, and timeline.</p>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-4);">
+    <a href="book.html" class="btn btn-primary reveal d2" data-magnetic>Talk about your web project &rarr;</a>
+    <a href="mailto:support@pixxelnesst.com" class="email-btn reveal d2" data-magnetic>
+      support@pixxelnesst.com
+      <svg width="18" height="18" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+    </a>
+  </div>
 
   <div class="footer-grid" style="text-align:left;">
     <div>
-      <div class="mark" style="font-weight:600;display:inline-flex;align-items:center;gap:10px;"><svg viewBox="0 0 100 100" width="24" height="24" aria-hidden="true" style="flex:none"><g transform="translate(50,50) rotate(315) translate(0,-38) rotate(-3)"><rect x="-5" y="-5" width="10" height="10" rx="2.5" fill="#B88A54" opacity="0.22" style="filter:blur(1.1px)"/></g><g transform="translate(50,50) rotate(270) translate(0,-35) rotate(6)"><rect x="-6" y="-6" width="12" height="12" rx="3" fill="#BE8E57" opacity="0.33" style="filter:blur(0.8px)"/></g><g transform="translate(50,50) rotate(225) translate(0,-37) rotate(-5)"><rect x="-6.5" y="-6.5" width="13" height="13" rx="3" fill="#C3915A" opacity="0.44" style="filter:blur(0.4px) drop-shadow(0 1px 1px rgba(0,0,0,0.12))"/></g><g transform="translate(50,50) rotate(180) translate(0,-34) rotate(7)"><rect x="-7.5" y="-7.5" width="15" height="15" rx="3.5" fill="#C9955D" opacity="0.55" style="filter:drop-shadow(0 1.5px 1.5px rgba(0,0,0,0.16))"/></g><g transform="translate(50,50) rotate(135) translate(0,-38) rotate(-4)"><rect x="-8.5" y="-8.5" width="17" height="17" rx="4" fill="#CF9960" opacity="0.66" style="filter:drop-shadow(0 2px 2px rgba(0,0,0,0.2))"/></g><g transform="translate(50,50) rotate(90) translate(0,-35) rotate(5)"><rect x="-9.5" y="-9.5" width="19" height="19" rx="4.3" fill="#D59D62" opacity="0.77" style="filter:drop-shadow(0 2.5px 2.5px rgba(0,0,0,0.22))"/></g><g transform="translate(50,50) rotate(45) translate(0,-37) rotate(-6)"><rect x="-10" y="-10" width="20" height="20" rx="4.5" fill="#DAA065" opacity="0.88" style="filter:drop-shadow(0 3px 3px rgba(0,0,0,0.26))"/></g><g transform="translate(50,50) rotate(0) translate(0,-34) rotate(4)"><rect x="-11" y="-11" width="22" height="22" rx="5" fill="#E0A468" style="filter:drop-shadow(0 4px 5px rgba(0,0,0,0.32))"/></g></svg>PixxelNesst</div>
+      <div class="mark" style="font-weight:600;display:inline-flex;align-items:center;gap:8px;"><svg viewBox="0 0 100 100" width="24" height="24" aria-hidden="true" style="flex:none"><g transform="translate(50,50) rotate(315) translate(0,-38) rotate(-3)"><rect x="-5" y="-5" width="10" height="10" rx="2.5" fill="#B88A54" opacity="0.22" style="filter:blur(1.1px)"/></g><g transform="translate(50,50) rotate(270) translate(0,-35) rotate(6)"><rect x="-6" y="-6" width="12" height="12" rx="3" fill="#BE8E57" opacity="0.33" style="filter:blur(0.8px)"/></g><g transform="translate(50,50) rotate(225) translate(0,-37) rotate(-5)"><rect x="-6.5" y="-6.5" width="13" height="13" rx="3" fill="#C3915A" opacity="0.44" style="filter:blur(0.4px) drop-shadow(0 1px 1px rgba(0,0,0,0.12))"/></g><g transform="translate(50,50) rotate(180) translate(0,-34) rotate(7)"><rect x="-7.5" y="-7.5" width="15" height="15" rx="3.5" fill="#C9955D" opacity="0.55" style="filter:drop-shadow(0 1.5px 1.5px rgba(0,0,0,0.16))"/></g><g transform="translate(50,50) rotate(135) translate(0,-38) rotate(-4)"><rect x="-8.5" y="-8.5" width="17" height="17" rx="4" fill="#CF9960" opacity="0.66" style="filter:drop-shadow(0 2px 2px rgba(0,0,0,0.2))"/></g><g transform="translate(50,50) rotate(90) translate(0,-35) rotate(5)"><rect x="-9.5" y="-9.5" width="19" height="19" rx="4.3" fill="#D59D62" opacity="0.77" style="filter:drop-shadow(0 2.5px 2.5px rgba(0,0,0,0.22))"/></g><g transform="translate(50,50) rotate(45) translate(0,-37) rotate(-6)"><rect x="-10" y="-10" width="20" height="20" rx="4.5" fill="#DAA065" opacity="0.88" style="filter:drop-shadow(0 3px 3px rgba(0,0,0,0.26))"/></g><g transform="translate(50,50) rotate(0) translate(0,-34) rotate(4)"><rect x="-11" y="-11" width="22" height="22" rx="5" fill="#E0A468" style="filter:drop-shadow(0 4px 5px rgba(0,0,0,0.32))"/></g></svg>PixxelNesst</div>
       <p class="brand-blurb">Brands and websites, built with care. India. Working worldwide.</p>
     </div>
     <div>
       <div class="col-label">Studio</div>
-      <a href="#included-reveal">Included</a><a href="#process-reveal">Process</a><a href="#pricing-reveal">Pricing</a><a href="#faq-reveal">FAQ</a>
+      <a href="#what-we-build">What we build</a><a href="#choose-your-path">Choose your path</a><a href="#process">Process</a><a href="#scope">Scope</a><a href="#faq">FAQ</a>
     </div>
     <div>
       <div class="col-label">Contact</div>
@@ -884,6 +1165,15 @@
             if (other !== item) other.open = false;
           });
         }
+      });
+    });
+
+    document.querySelectorAll('.accordion-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (panel) panel.hidden = expanded;
       });
     });
 
